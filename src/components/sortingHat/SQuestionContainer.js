@@ -1,4 +1,5 @@
 import React from 'react';
+import SAnswer from "./SAnswer"
 
 
 export default class SQuestionContainer extends React.Component{
