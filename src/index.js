@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
+import SMainContainer from './components/sortingHat/SMainContainer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
+        <Route exact path="/sorting_hat" component={SMainContainer} />
       </div>
     </Router>
   </React.StrictMode>,
