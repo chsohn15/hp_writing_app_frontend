@@ -50,7 +50,6 @@ export default class SQuestionContainer extends React.Component{
                     values: [...this.state.answeredQuestions.values, value]
                 }},this.findHouse,
                 )
-            // this.props.finishQuiz()
         }else{
             console.log(value)
         this.setState({
