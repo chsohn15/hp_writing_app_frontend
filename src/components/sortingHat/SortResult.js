@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SortResult = () => {
+const SortResult = (props) => {
     return ( <div>
-        hi
+        You have been sorted into House {props.house}!
     </div> );
 }
  

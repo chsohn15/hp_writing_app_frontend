@@ -5,20 +5,49 @@ import SortResult from './SortResult.js'
 class SMainContainer extends React.Component{
     state={
         onQuiz: true,
-
+        userHouse: null
     }
 
-    finishQuiz=()=>{
-        this.setState({
-            onQuiz:false
+    
+    
+    finishQuiz=(house)=>{
+        if (house === "g"){
+            house="Gryffindor"
+        } else if(house === "r"){
+            house="Ravenclaw"
+        }else if(house === "h"){
+            house="Hufflepuff"
+        }else if(house === "s"){
+            house="Slytherin"
+        }
+
+
+        let configObj = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                house: house
+            })
+        }
+        fetch("http://localhost:3000/users/1", configObj)
+        .then(res => res.json())
+        .then(user => {
+            this.setState({
+                onQuiz:false,
+                userHouse: user.house
+            })
         })
+        
+
     }
 
     render(){
     return (
         <div>
             <h1>Sorting Hat - maybe make into header component</h1>
-            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult/>}
+            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult house={this.state.userHouse}/>}
         </div>
       );
     }

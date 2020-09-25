@@ -33,18 +33,18 @@ export default class SQuestionContainer extends React.Component{
             if(hash[answer]){hash[answer]+=1}else{hash[answer]=1}}
             )
         
-        console.log(hash)
+
         let mode = Object.keys(hash).reduce((a, b) => hash[a] > hash[b] ? a : b);
         console.log(mode)
-        this.props.finishQuiz()
+        this.props.finishQuiz(mode)
     }
 
     handleClick =(value) => {
         let nextQuestionNumber = this.state.currentQuestion.questionNumber + 1
         console.log(nextQuestionNumber)
         if(nextQuestionNumber>this.state.questions.length){
-            console.log(value)
-            console.log(this.state.answeredQuestions.values)
+            // console.log(value)
+            // console.log(this.state.answeredQuestions.values)
             this.setState({
                 answeredQuestions:{
                     values: [...this.state.answeredQuestions.values, value]
