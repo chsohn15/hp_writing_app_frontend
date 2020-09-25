@@ -21,7 +21,6 @@ export default class SQuestionContainer extends React.Component{
     
     displayQuestion = () => {
         let foundQuestion =  this.state.questions.find(question => question.number === this.state.currentQuestion.questionNumber)
-        // console.log(foundQuestion)
 
         return foundQuestion
     }
@@ -44,7 +43,7 @@ export default class SQuestionContainer extends React.Component{
         return(
             question ?
             <div>Sorting Hat Question
-                <h3>Question : {question.question}</h3>
+                <h3>Question {question.number}: {question.question}</h3>
             </div>
             :   
             null
