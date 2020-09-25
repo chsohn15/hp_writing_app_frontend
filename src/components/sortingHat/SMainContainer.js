@@ -5,11 +5,10 @@ import SortResult from './SortResult.js'
 class SMainContainer extends React.Component{
     state={
         onQuiz: true,
-        userHouse: null
+        userHouse: null,
+        houseCharacters: null
     }
 
-    
-    
     finishQuiz=(house)=>{
         if (house === "g"){
             house="Gryffindor"
@@ -40,6 +39,19 @@ class SMainContainer extends React.Component{
             })
         })
         
+        let houseLower = house.toLowerCase()
+
+        let url = `http://localhost:3000/${houseLower}_students`
+        
+
+        fetch(url)
+        .then(res=>res.json())
+        .then(characters => {
+            this.setState({
+                houseCharacters:characters
+            })
+        })
+
 
     }
 
@@ -47,7 +59,7 @@ class SMainContainer extends React.Component{
     return (
         <div>
             <h1>Sorting Hat - maybe make into header component</h1>
-            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult house={this.state.userHouse}/>}
+            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult houseCharacters={this.state.houseCharacters} house={this.state.userHouse}/>}
         </div>
       );
     }
