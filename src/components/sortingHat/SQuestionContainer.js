@@ -36,6 +36,7 @@ export default class SQuestionContainer extends React.Component{
         console.log(hash)
         let mode = Object.keys(hash).reduce((a, b) => hash[a] > hash[b] ? a : b);
         console.log(mode)
+        this.props.finishQuiz()
     }
 
     handleClick =(value) => {
@@ -47,7 +48,7 @@ export default class SQuestionContainer extends React.Component{
             this.setState({
                 answeredQuestions:{
                     values: [...this.state.answeredQuestions.values, value]
-                }},this.findHouse,this.props.finishQuiz
+                }},this.findHouse,
                 )
             // this.props.finishQuiz()
         }else{
