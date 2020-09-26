@@ -8,13 +8,17 @@ class App extends React.Component {
   
   state = {
     userHouse: null,
-    userAlterEgo: ""
+    userAlterEgo: null
   }
 
   setUserHouse = (house) => {
     this.setState({
       userHouse: house
     })
+  }
+
+  setAlterEgo = (alterEgo) => {
+    debugger
   }
   
   render(){
@@ -29,7 +33,7 @@ class App extends React.Component {
       <div>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
-        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} userHouse={this.state.userHouse}/>} />
+        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} userHouse={this.state.userHouse} setAlterEgo={this.setAlterEgo}/>} />
       </div>
     </Router>
     </div>

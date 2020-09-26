@@ -7,7 +7,7 @@ const CharacterPicker = (props) => {
     return ( 
     <div>
         <h2>Choose an Alter Ego from {props.house}!</h2>
-        <div>{props.houseCharacters.map(character=> <Character character={character} key={character.id}/>)}
+        <div>{props.houseCharacters.map(character=> <Character character={character} key={character.id} setAlterEgo={props.setAlterEgo}/>)}
         Character Picker Container</div>
     </div> );
     }else{

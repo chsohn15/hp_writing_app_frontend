@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Character = (props) => {
-    return ( <div onClick={null}>
+    return ( <div onClick={() => props.setAlterEgo(props.character)}>
          
          <img src={props.character.image} alt={props.character.name}/>
          <p>{props.character.name}</p>
