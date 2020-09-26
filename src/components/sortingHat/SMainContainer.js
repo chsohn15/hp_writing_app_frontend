@@ -5,7 +5,6 @@ import SortResult from './SortResult.js'
 class SMainContainer extends React.Component{
     state={
         onQuiz: true,
-        //userHouse: null,
         houseCharacters: null
     }
 
@@ -20,7 +19,7 @@ class SMainContainer extends React.Component{
             house="Slytherin"
         }
 
-
+        
         let configObj = {
             method: "PATCH",
             headers: {
@@ -31,28 +30,30 @@ class SMainContainer extends React.Component{
             })
         }
 
+        // Update house in database
         fetch(`http://localhost:3000/users/${this.props.currentUserId}`, configObj)
         .then(res => res.json())
         .then(user => {
             this.setState({
                 onQuiz:false,
             })
-            this.props.setUserHouse(user.house)
+            // Change state of current user house in App.js
+            this.props.setUserHouse(house)
         })
         
         let houseLower = house.toLowerCase()
 
         let url = `http://localhost:3000/${houseLower}_students`
         
-
+        // Fetch characters from that house
         fetch(url)
         .then(res=>res.json())
         .then(characters => {
             this.setState({
                 houseCharacters:characters
             })
+            
         })
-
 
     }
 

@@ -6,20 +6,29 @@ import SMainContainer from './components/sortingHat/SMainContainer';
 
 class App extends React.Component {
   
+  componentDidMount(){
+    fetch("http://localhost:3000/users/4")
+    .then(res => res.json())
+    .then(user => this.setState({
+      currentUser: user
+    }))
+  }
+
   state = {
-    currentUserId: 4, 
-    userHouse: null,
-    userAlterEgo: null
+    currentUser: {}, 
   }
 
   setUserHouse = (house) => {
+
     this.setState({
-      userHouse: house
+      currentUser: {
+        ...this.state.currentUser, 
+        house: house}
     })
   }
 
   setAlterEgo = (charAlterEgo) => {
-    
+    //Update character_id in database
     let configObj = {
       method: "PATCH",
       headers: {
@@ -31,11 +40,14 @@ class App extends React.Component {
       })
   }
 
-  fetch(`http://localhost:3000/users/${this.state.currentUserId}`, configObj)
+  // Update character_id in state
+  fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
   .then(res => res.json())
-  .then(user => {
+  .then(user =>{
       this.setState({
-        userAlterEgo: charAlterEgo
+        currentUser: {
+          ...this.state.currentUser, 
+          character_id: user.character_id}
       })
   })
 
@@ -53,7 +65,7 @@ class App extends React.Component {
       <div>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
-        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} currentUserId = {this.state.currentUserId} userHouse={this.state.userHouse} setAlterEgo={this.setAlterEgo}/>} />
+        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} currentUserId = {this.state.currentUser.id} userHouse={this.state.currentUser.house} setAlterEgo={this.setAlterEgo}/>} />
       </div>
     </Router>
     </div>
