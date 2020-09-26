@@ -5,7 +5,7 @@ import SortResult from './SortResult.js'
 class SMainContainer extends React.Component{
     state={
         onQuiz: true,
-        userHouse: null,
+        //userHouse: null,
         houseCharacters: null
     }
 
@@ -35,8 +35,9 @@ class SMainContainer extends React.Component{
         .then(user => {
             this.setState({
                 onQuiz:false,
-                userHouse: user.house
+                //userHouse: user.house
             })
+            this.props.setUserHouse(user.house)
         })
         
         let houseLower = house.toLowerCase()
@@ -59,7 +60,7 @@ class SMainContainer extends React.Component{
     return (
         <div>
             <h1>Sorting Hat - maybe make into header component</h1>
-            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult houseCharacters={this.state.houseCharacters} house={this.state.userHouse}/>}
+            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult houseCharacters={this.state.houseCharacters} house={this.props.userHouse}/>}
         </div>
       );
     }
