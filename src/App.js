@@ -7,6 +7,7 @@ import SMainContainer from './components/sortingHat/SMainContainer';
 class App extends React.Component {
   
   state = {
+    currentUserId: 4, 
     userHouse: null,
     userAlterEgo: null
   }
@@ -17,8 +18,27 @@ class App extends React.Component {
     })
   }
 
-  setAlterEgo = (alterEgo) => {
-    debugger
+  setAlterEgo = (charAlterEgo) => {
+    
+    let configObj = {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+      body: JSON.stringify({
+          character_id: charAlterEgo.id
+      })
+  }
+
+  fetch(`http://localhost:3000/users/${this.state.currentUserId}`, configObj)
+  .then(res => res.json())
+  .then(user => {
+      this.setState({
+        userAlterEgo: charAlterEgo
+      })
+  })
+
   }
   
   render(){
@@ -33,7 +53,7 @@ class App extends React.Component {
       <div>
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={LogIn} />
-        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} userHouse={this.state.userHouse} setAlterEgo={this.setAlterEgo}/>} />
+        <Route exact path="/sorting_hat" render = {() => <SMainContainer setUserHouse={this.setUserHouse} currentUserId = {this.state.currentUserId} userHouse={this.state.userHouse} setAlterEgo={this.setAlterEgo}/>} />
       </div>
     </Router>
     </div>

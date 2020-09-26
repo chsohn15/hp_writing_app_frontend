@@ -30,12 +30,12 @@ class SMainContainer extends React.Component{
                 house: house
             })
         }
-        fetch("http://localhost:3000/users/1", configObj)
+
+        fetch(`http://localhost:3000/users/${this.props.currentUserId}`, configObj)
         .then(res => res.json())
         .then(user => {
             this.setState({
                 onQuiz:false,
-                //userHouse: user.house
             })
             this.props.setUserHouse(user.house)
         })
