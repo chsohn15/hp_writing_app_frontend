@@ -7,14 +7,17 @@ import UserPageContainer from "./components/userPage/UserPageContainer";
 import Assignment from "./components/Assignments/Assignment.js"
 
 class App extends React.Component {
+
   componentDidMount() {
-    fetch("http://localhost:3000/users/5")
+   
+    fetch("http://localhost:3000/users/6")
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: user
+          currentUser: {...user, teacher: user.teacher} 
         });
       });
+
     fetch("http://localhost:3000/assignments")
       .then((res) => res.json())
       .then(assignments => {
@@ -56,9 +59,9 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: user,
-          alterEgo: charAlterEgo
-        });
+          currentUser: {...user, 
+            character: charAlterEgo
+        }});
       });
   };
 
