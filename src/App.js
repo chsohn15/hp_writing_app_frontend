@@ -112,7 +112,10 @@ class App extends React.Component {
         </header>
         <Router>
           <div>
-            <Route exact path="/signup" component={SignUp} />
+            <Route 
+            exact 
+            path="/signup" 
+            render={(routerProps) => <SignUp {...routerProps} setCurrentUser={this.setCurrentUserByLogin}/>} />
             <Route 
               exact 
               path="/login" 
