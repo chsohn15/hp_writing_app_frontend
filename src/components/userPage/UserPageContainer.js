@@ -4,7 +4,12 @@ import ActivityContainer from "./ActivityContainer.js";
 import { render } from "react-dom";
 
 const UserPageContainer = (props) => {
+    //let character = props.character
     const teacher = {...props.currentUser.teacher}
+    let id = localStorage.user_id
+    
+    props.renderUserPage(id)
+
     return (
       <div>
         <div>{props.currentUser.first_name}'s Home Page</div>

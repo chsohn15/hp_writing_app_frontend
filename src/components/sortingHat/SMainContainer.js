@@ -67,7 +67,15 @@ class SMainContainer extends React.Component{
     return (
         <div>
             <h1>Sorting Hat - maybe make into header component</h1>
-            {this.state.onQuiz?<SQuestionContainer finishQuiz={this.finishQuiz}/>:<SortResult houseCharacters={this.state.houseCharacters} house={this.props.userHouse} setAlterEgo={this.props.setAlterEgo}/>}
+            {this.state.onQuiz?
+            <SQuestionContainer 
+            finishQuiz={this.finishQuiz}/>
+            :
+            <SortResult 
+            routerProps={this.props.routerProps} 
+            houseCharacters={this.state.houseCharacters} 
+            house={this.props.userHouse} 
+            setAlterEgo={this.props.setAlterEgo}/>}
         </div>
       );
     }

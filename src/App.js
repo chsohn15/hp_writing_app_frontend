@@ -92,15 +92,27 @@ class App extends React.Component {
       }),
     };
 
-    // Update character_id in state
+
+    //Update character_id in state
     fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
       .then((res) => res.json())
-      .then((user) => {
-        this.setState({
-          currentUser: user
-        });
-      });
+      
   };
+
+  renderUserPage = (id) => {
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "GET", 
+      headers: {
+        "Authorization": `Bearer ${localStorage.token}`
+      }
+    })
+    .then((res) => res.json())
+    .then((user) => {
+      this.setState({
+        currentUser: user
+      });
+    });
+  }
 
   render() {
     return (
@@ -123,8 +135,9 @@ class App extends React.Component {
             <Route
               exact
               path="/sorting_hat"
-              render={() => (
+              render={(routerProps) => (
                 <SMainContainer
+                  routerProps = {routerProps}
                   setUserHouse={this.setUserHouse}
                   currentUserId={this.state.currentUser.id}
                   userHouse={this.state.currentUser.house}
@@ -136,7 +149,7 @@ class App extends React.Component {
               exact
               path="/user_home"
               render={() => (
-                <UserPageContainer alterEgo={this.state.alterEgo} currentUser={this.state.currentUser} assignments={this.state.assignments}/>
+                <UserPageContainer renderUserPage={this.renderUserPage} alterEgo={this.state.alterEgo} currentUser={this.state.currentUser} assignments={this.state.assignments}/>
               )}
             />
             <Route

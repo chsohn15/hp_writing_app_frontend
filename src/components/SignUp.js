@@ -54,12 +54,11 @@ class SignUp extends React.Component {
       this.props.setCurrentUser(data.user_id)
     })
       
-      // userInfo => {
-      // localStorage.token = userInfo.token
-      // localStorage.user_id = userInfo.user_id
-      // this.props.setCurrentUser(userInfo.user_id)
-      // })
 
+  }
+
+  directToSortingHat =() => {
+    this.props.history.push("/sorting_hat")
   }
  
   render(){
@@ -67,7 +66,11 @@ class SignUp extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Sign Up for an Account!</h1>
-          <form onSubmit={(e) => this.signUp(e)}>
+          <form onSubmit={(e) => {
+            this.signUp(e)
+            this.directToSortingHat()
+          }
+            }>
             <label>First Name</label>
             <input onChange={(e) => this.handleChange(e)} name="first_name" type="text"/><br/>
             <label>Last Name</label>
