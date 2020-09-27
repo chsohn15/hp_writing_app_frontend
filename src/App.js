@@ -14,7 +14,7 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: {...user, teacher: user.teacher} 
+          currentUser: user
         });
       });
 
@@ -59,9 +59,8 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: {...user, 
-            character: charAlterEgo
-        }});
+          currentUser: user
+        });
       });
   };
 
