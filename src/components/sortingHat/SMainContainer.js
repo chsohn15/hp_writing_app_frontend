@@ -23,7 +23,8 @@ class SMainContainer extends React.Component{
         let configObj = {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
             },
             body: JSON.stringify({
                 house: house
@@ -46,7 +47,12 @@ class SMainContainer extends React.Component{
         let url = `http://localhost:3000/${houseLower}_students`
         
         // Fetch characters from that house
-        fetch(url)
+        fetch(url, {
+            method:"GET",
+            headers: {
+              "Authorization": `Bearer ${localStorage.token}`
+            }
+          })
         .then(res=>res.json())
         .then(characters => {
             this.setState({

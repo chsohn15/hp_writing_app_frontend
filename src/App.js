@@ -8,9 +8,18 @@ import Assignment from "./components/Assignments/Assignment.js"
 
 class App extends React.Component {
 
-  componentDidMount() {
-   
-    fetch("http://localhost:3000/users/6")
+  state = {
+    currentUser: {},
+    assignments: []
+  };
+
+  componentDidMount(){
+    fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
+      method:"GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.token}`
+      }
+    })
       .then((res) => res.json())
       .then((user) => {
         this.setState({
@@ -18,7 +27,12 @@ class App extends React.Component {
         });
       });
 
-    fetch("http://localhost:3000/assignments")
+    fetch("http://localhost:3000/assignments", {
+      method:"GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.token}`
+      }
+    })
       .then((res) => res.json())
       .then(assignments => {
         this.setState({
@@ -26,11 +40,34 @@ class App extends React.Component {
         })
       });
   }
+ setCurrentUserByLogin = (id) => {
 
-  state = {
-    currentUser: {},
-    assignments: []
-  };
+  fetch(`http://localhost:3000/users/${id}`, {
+      method:"GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          currentUser: user
+        });
+      });
+
+    fetch("http://localhost:3000/assignments", {
+      method:"GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.token}`
+      }
+    })
+      .then((res) => res.json())
+      .then(assignments => {
+        this.setState({
+          assignments
+        })
+      });
+ }
 
   setUserHouse = (house) => {
     this.setState({
@@ -48,6 +85,7 @@ class App extends React.Component {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Authorization": `Bearer ${localStorage.token}`
       },
       body: JSON.stringify({
         character_id: charAlterEgo.id,
@@ -75,7 +113,10 @@ class App extends React.Component {
         <Router>
           <div>
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/login" component={LogIn} />
+            <Route 
+              exact 
+              path="/login" 
+              render={(routerProps) => <LogIn {...routerProps} setCurrentUser={this.setCurrentUserByLogin}/>} />
             <Route
               exact
               path="/sorting_hat"

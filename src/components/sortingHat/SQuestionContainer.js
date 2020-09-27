@@ -15,7 +15,12 @@ export default class SQuestionContainer extends React.Component{
     }
 
     componentDidMount(){
-        fetch("http://localhost:3000/sorting_hat_questions")
+        fetch("http://localhost:3000/sorting_hat_questions", {
+            method:"GET",
+            headers: {
+              "Authorization": `Bearer ${localStorage.token}`
+            }
+          })
         .then(res => res.json())
         .then(questions => {this.setState({questions})})
     }
