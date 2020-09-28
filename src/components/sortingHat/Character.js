@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Character = (props) => {
-  const goToUserPage = () => {
-    props.routerProps.history.push("/user_home");
-  };
+  // const goToUserPage = () => {
+  //   props.routerProps.history.push("/user_home");
+  // };
 
   return (
     <div>

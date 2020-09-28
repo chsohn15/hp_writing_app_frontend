@@ -43,7 +43,12 @@ class SMainContainer extends React.Component {
 
     let houseLower = house.toLowerCase();
 
-    let url = `http://localhost:3000/${houseLower}_students`;
+    let url = ""
+    if (this.props.currentUser.is_student){
+      url = `http://localhost:3000/${houseLower}_students`;
+    }
+    else {url = `http://localhost:3000/${houseLower}_teachers`;}
+    
 
     // Fetch characters from that house
     fetch(url, {
