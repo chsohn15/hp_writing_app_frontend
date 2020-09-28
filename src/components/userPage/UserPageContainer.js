@@ -12,7 +12,7 @@ const UserPageContainer = (props) => {
 
   //props.renderUserPage(id)
 
-  return props.currentUser.isStudent ? (
+  return props.currentUser.is_student ? (
     <div>
       <div>{props.currentUser.first_name}'s Home Page</div>
       {!teacher === undefined ? (
@@ -20,8 +20,10 @@ const UserPageContainer = (props) => {
       ) : (
         <div>
           {" "}
-          Choose a teacher
-          <TeacherForm teachers={props.teachers} />
+          <TeacherForm
+            setTeacher={props.setTeacher}
+            teachers={props.teachers}
+          />
         </div>
       )}
 

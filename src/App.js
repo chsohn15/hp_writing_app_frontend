@@ -50,7 +50,7 @@ class App extends React.Component {
       .then((res) => res.json())
       .then((teachers) => {
         this.setState({
-          teachers,
+          teachers: teachers,
         });
       });
   }
@@ -137,6 +137,24 @@ class App extends React.Component {
     // localStorage.clear()
   };
 
+  setTeacher = (id) => {
+    let studentId = this.state.currentUser.id;
+
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        teacher_id: id,
+      }),
+    };
+
+    fetch(`http://localhost:3000/users/${studentId}`, configObj)
+      .then((res) => res.json())
+      .then((student) => console.log(student));
+  };
+
   render() {
     return (
       <div className="App">
@@ -190,6 +208,7 @@ class App extends React.Component {
                   currentUser={this.state.currentUser}
                   assignments={this.state.assignments}
                   teachers={this.state.teachers}
+                  setTeacher={this.setTeacher}
                 />
               )}
             />

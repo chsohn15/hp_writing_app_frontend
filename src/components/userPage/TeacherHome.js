@@ -7,7 +7,7 @@ const TeacherHome = (props) => {
   //let character = props.character
 
   let id = localStorage.user_id;
-
+  const students = props.currentUser.teachers_students;
   //props.renderUserPage(id)
 
   return (
@@ -15,7 +15,12 @@ const TeacherHome = (props) => {
       <div>{props.currentUser.first_name}'s Home Page</div>
       This is a teacher home page
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
-      <ActivityContainer assignments={props.assignments} />
+      <div>My Students</div>
+      {students
+        ? students.map((student) => (
+            <div>{student.first_name + " " + student.last_name}</div>
+          ))
+        : null}
     </div>
   );
 };
