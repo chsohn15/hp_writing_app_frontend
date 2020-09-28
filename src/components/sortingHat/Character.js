@@ -21,25 +21,6 @@ const Character = (props) => {
       >
         Choose This Character
       </NavLink>
-      {/* {props.currentUser.isStudent ? (
-        <NavLink
-          onClick={() => {
-            props.setAlterEgo(props.character);
-          }}
-          to={{ pathname: "/user_home", character: props.character }}
-        >
-          Choose This Character
-        </NavLink>
-      ) : (
-        <NavLink
-          onClick={() => {
-            props.setAlterEgo(props.character);
-          }}
-          to={{ pathname: "/teacher_home", character: props.character }}
-        >
-          Choose This Character
-        </NavLink>
-      )} */}
     </div>
   );
 };

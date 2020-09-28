@@ -15,7 +15,7 @@ const UserPageContainer = (props) => {
   return props.currentUser.is_student ? (
     <div>
       <div>{props.currentUser.first_name}'s Home Page</div>
-      {!teacher === undefined ? (
+      {teacher.id ? (
         <div>My Teacher: {teacher.first_name + " " + teacher.last_name}</div>
       ) : (
         <div>
@@ -35,6 +35,7 @@ const UserPageContainer = (props) => {
       assignments={props.assignments}
       alterEgo={props.alterEgo}
       currentUser={props.currentUser}
+      teachers={props.teachers}
     />
   );
 };

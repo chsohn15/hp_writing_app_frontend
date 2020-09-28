@@ -7,9 +7,12 @@ const TeacherHome = (props) => {
   //let character = props.character
 
   let id = localStorage.user_id;
-  const students = props.currentUser.teachers_students;
-  //props.renderUserPage(id)
+  id = parseInt(id);
 
+  let teacher = props.teachers.find((teacher) => teacher.id === id);
+
+  let newTeacher = { ...teacher };
+  let students = newTeacher.teachers_students;
   return (
     <div>
       <div>{props.currentUser.first_name}'s Home Page</div>

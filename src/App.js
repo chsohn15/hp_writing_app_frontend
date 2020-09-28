@@ -212,18 +212,19 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route
+            {/* <Route
               exact
               path="/teacher_home"
               render={() => (
                 <TeacherHome
+                  teachers={this.state.teachers}
                   renderUserPage={this.renderUserPage}
                   alterEgo={this.state.alterEgo}
                   currentUser={this.state.currentUser}
                   assignments={this.state.assignments}
                 />
               )}
-            />
+            /> */}
             <Route
               exact
               path="/assignment"
