@@ -9,6 +9,7 @@ const SortResult = (props) => {
         house={props.house}
         houseCharacters={props.houseCharacters}
         setAlterEgo={props.setAlterEgo}
+        routerProps={props.routerProps}
       />
     </div>
   );
