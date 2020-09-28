@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import SMainContainer from "./components/sortingHat/SMainContainer";
@@ -114,15 +114,23 @@ class App extends React.Component {
     });
   }
 
+  logOut = () => {
+    localStorage.clear()
+  }
+
+  directToLogIn = () => {
+    this.routerProps.history.push("/login")
+    // localStorage.clear()
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Hogwarts</h1>
-          <button>Login</button>
-          <button>Signup</button>
         </header>
         <Router>
+          <NavLink to="/login">Log Out</NavLink>
           <div>
             <Route 
             exact 
