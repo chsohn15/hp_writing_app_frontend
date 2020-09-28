@@ -6,6 +6,7 @@ import SMainContainer from "./components/sortingHat/SMainContainer";
 import UserPageContainer from "./components/userPage/UserPageContainer";
 import TeacherHome from "./components/userPage/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
+import TStudentInfo from "./components/userPage/TStudentInfo";
 
 class App extends React.Component {
   state = {
@@ -107,21 +108,10 @@ class App extends React.Component {
     };
 
     //Update character_id in state
-    fetch(
-      `http://localhost:3000/users/${this.state.currentUser.id}`,
-      configObj
-    ).then((res) => res.json());
-  };
-
-  renderUserPage = (id) => {
-    fetch(`http://localhost:3000/users/${id}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
+    fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
       .then((res) => res.json())
       .then((user) => {
+        console.log(user);
         this.setState({
           currentUser: user,
         });
@@ -212,19 +202,11 @@ class App extends React.Component {
                 />
               )}
             />
-            {/* <Route
+            <Route
               exact
-              path="/teacher_home"
-              render={() => (
-                <TeacherHome
-                  teachers={this.state.teachers}
-                  renderUserPage={this.renderUserPage}
-                  alterEgo={this.state.alterEgo}
-                  currentUser={this.state.currentUser}
-                  assignments={this.state.assignments}
-                />
-              )}
-            /> */}
+              path="/student_info"
+              render={(routerProps) => <TStudentInfo {...routerProps} />}
+            />
             <Route
               exact
               path="/assignment"

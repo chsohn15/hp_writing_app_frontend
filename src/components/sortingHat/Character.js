@@ -17,7 +17,7 @@ const Character = (props) => {
         onClick={() => {
           props.setAlterEgo(props.character);
         }}
-        to={{ pathname: "/user_home", character: props.character }}
+        to={{ pathname: "/user_home" }}
       >
         Choose This Character
       </NavLink>
@@ -26,3 +26,5 @@ const Character = (props) => {
 };
 
 export default Character;
+
+//character: props.character
