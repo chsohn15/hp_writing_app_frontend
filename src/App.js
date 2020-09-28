@@ -4,70 +4,84 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import SMainContainer from "./components/sortingHat/SMainContainer";
 import UserPageContainer from "./components/userPage/UserPageContainer";
-import Assignment from "./components/Assignments/Assignment.js"
+import TeacherHome from "./components/userPage/TeacherHome";
+import Assignment from "./components/Assignments/Assignment.js";
 
 class App extends React.Component {
-
   state = {
     currentUser: {},
-    assignments: []
+    assignments: [],
+    teachers: [],
   };
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
-      method:"GET",
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`
-      }
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     })
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: user
+          currentUser: user,
         });
       });
 
     fetch("http://localhost:3000/assignments", {
-      method:"GET",
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`
-      }
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     })
       .then((res) => res.json())
-      .then(assignments => {
+      .then((assignments) => {
         this.setState({
-          assignments
-        })
+          assignments,
+        });
+      });
+
+    fetch("http://localhost:3000/teachers", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((teachers) => {
+        this.setState({
+          teachers,
+        });
       });
   }
- setCurrentUserByLogin = (id) => {
 
-  fetch(`http://localhost:3000/users/${id}`, {
-      method:"GET",
+  setCurrentUserByLogin = (id) => {
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`
-      }
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     })
       .then((res) => res.json())
       .then((user) => {
         this.setState({
-          currentUser: user
+          currentUser: user,
         });
       });
 
     fetch("http://localhost:3000/assignments", {
-      method:"GET",
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`
-      }
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     })
       .then((res) => res.json())
-      .then(assignments => {
+      .then((assignments) => {
         this.setState({
-          assignments
-        })
+          assignments,
+        });
       });
- }
+  };
 
   setUserHouse = (house) => {
     this.setState({
@@ -85,43 +99,43 @@ class App extends React.Component {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Authorization": `Bearer ${localStorage.token}`
+        Authorization: `Bearer ${localStorage.token}`,
       },
       body: JSON.stringify({
         character_id: charAlterEgo.id,
       }),
     };
 
-
     //Update character_id in state
-    fetch(`http://localhost:3000/users/${this.state.currentUser.id}`, configObj)
-      .then((res) => res.json())
-      
+    fetch(
+      `http://localhost:3000/users/${this.state.currentUser.id}`,
+      configObj
+    ).then((res) => res.json());
   };
 
   renderUserPage = (id) => {
     fetch(`http://localhost:3000/users/${id}`, {
-      method: "GET", 
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${localStorage.token}`
-      }
+        Authorization: `Bearer ${localStorage.token}`,
+      },
     })
-    .then((res) => res.json())
-    .then((user) => {
-      this.setState({
-        currentUser: user
+      .then((res) => res.json())
+      .then((user) => {
+        this.setState({
+          currentUser: user,
+        });
       });
-    });
-  }
+  };
 
   logOut = () => {
-    localStorage.clear()
-  }
+    localStorage.clear();
+  };
 
   directToLogIn = () => {
-    this.routerProps.history.push("/login")
+    this.routerProps.history.push("/login");
     // localStorage.clear()
-  }
+  };
 
   render() {
     return (
@@ -132,22 +146,35 @@ class App extends React.Component {
         <Router>
           <NavLink to="/login">Log Out</NavLink>
           <div>
-            <Route 
-            exact 
-            path="/signup" 
-            render={(routerProps) => <SignUp {...routerProps} setCurrentUser={this.setCurrentUserByLogin}/>} />
-            <Route 
-              exact 
-              path="/login" 
-              render={(routerProps) => <LogIn {...routerProps} setCurrentUser={this.setCurrentUserByLogin}/>} />
+            <Route
+              exact
+              path="/signup"
+              render={(routerProps) => (
+                <SignUp
+                  {...routerProps}
+                  setCurrentUser={this.setCurrentUserByLogin}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/login"
+              render={(routerProps) => (
+                <LogIn
+                  {...routerProps}
+                  setCurrentUser={this.setCurrentUserByLogin}
+                />
+              )}
+            />
             <Route
               exact
               path="/sorting_hat"
               render={(routerProps) => (
                 <SMainContainer
-                  routerProps = {routerProps}
+                  routerProps={routerProps}
                   setUserHouse={this.setUserHouse}
                   currentUserId={this.state.currentUser.id}
+                  currentUser={this.state.currentUser}
                   userHouse={this.state.currentUser.house}
                   setAlterEgo={this.setAlterEgo}
                 />
@@ -157,14 +184,35 @@ class App extends React.Component {
               exact
               path="/user_home"
               render={() => (
-                <UserPageContainer renderUserPage={this.renderUserPage} alterEgo={this.state.alterEgo} currentUser={this.state.currentUser} assignments={this.state.assignments}/>
+                <UserPageContainer
+                  renderUserPage={this.renderUserPage}
+                  alterEgo={this.state.alterEgo}
+                  currentUser={this.state.currentUser}
+                  assignments={this.state.assignments}
+                  teachers={this.state.teachers}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/teacher_home"
+              render={() => (
+                <TeacherHome
+                  renderUserPage={this.renderUserPage}
+                  alterEgo={this.state.alterEgo}
+                  currentUser={this.state.currentUser}
+                  assignments={this.state.assignments}
+                />
               )}
             />
             <Route
               exact
               path="/assignment"
               render={(routerProps) => (
-                <Assignment {...routerProps} currentUser={this.state.currentUser} />
+                <Assignment
+                  {...routerProps}
+                  currentUser={this.state.currentUser}
+                />
               )}
             />
           </div>
