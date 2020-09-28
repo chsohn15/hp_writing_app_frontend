@@ -28,7 +28,7 @@ const UserPageContainer = (props) => {
       )}
 
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
-      <ActivityContainer assignments={props.assignments} />
+      <ActivityContainer currentUser={props.currentUser} assignments={props.assignments} />
     </div>
   ) : (
     <TeacherHome
@@ -36,6 +36,7 @@ const UserPageContainer = (props) => {
       alterEgo={props.alterEgo}
       currentUser={props.currentUser}
       teachers={props.teachers}
+
     />
   );
 };

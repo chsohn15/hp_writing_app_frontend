@@ -12,9 +12,7 @@ class TStudentAssignment extends React.Component {
     });
   };
 
-  studentId = this.props.assignment.student_id;
-  assignmentId = this.props.assignment.assignment_id;
-  //teacherId =
+  sa_id = this.props.assignment.id
 
   render() {
     return (
@@ -39,7 +37,7 @@ class TStudentAssignment extends React.Component {
           onChange={(e) => this.handleChange(e)}
         ></textarea>{" "}
         <br />
-        <button>Submit Grade</button>
+        <button onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>Submit Grade</button>
       </div>
     );
   }

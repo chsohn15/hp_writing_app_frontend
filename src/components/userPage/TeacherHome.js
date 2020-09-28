@@ -17,7 +17,7 @@ const TeacherHome = (props) => {
             <NavLink
               to={{
                 pathname: "/student_info",
-                student: student,
+                student: student
               }}
             >
               {student.first_name + " " + student.last_name}

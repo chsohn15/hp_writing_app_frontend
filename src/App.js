@@ -6,6 +6,7 @@ import SMainContainer from "./components/sortingHat/SMainContainer";
 import UserPageContainer from "./components/userPage/UserPageContainer";
 import TeacherHome from "./components/userPage/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
+import CompletedAssignment from "./components/Assignments/CompletedAssignment.js";
 import TStudentInfo from "./components/userPage/TStudentInfo";
 
 class App extends React.Component {
@@ -145,6 +146,27 @@ class App extends React.Component {
       .then((student) => console.log(student));
   };
 
+  gradePaper = (sa_id, score, feedback) => {
+    let scoreInt = parseInt(score)
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        score: scoreInt,
+        feedback: feedback
+      })
+    }
+    
+    fetch(`http://localhost:3000/student_assignments/`+ sa_id, configObj)
+    .then(res=>res.json())
+    .then(sa=>console.log(sa) 
+    )
+  
+  }
+
   render() {
     return (
       <div className="App">
@@ -199,19 +221,30 @@ class App extends React.Component {
                   assignments={this.state.assignments}
                   teachers={this.state.teachers}
                   setTeacher={this.setTeacher}
+
                 />
               )}
             />
             <Route
               exact
               path="/student_info"
-              render={(routerProps) => <TStudentInfo {...routerProps} />}
+              render={(routerProps) => <TStudentInfo gradePaper={this.gradePaper} {...routerProps} />}
             />
             <Route
               exact
               path="/assignment"
               render={(routerProps) => (
                 <Assignment
+                  {...routerProps}
+                  currentUser={this.state.currentUser}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/completed_assignment"
+              render={(routerProps) => (
+                <CompletedAssignment
                   {...routerProps}
                   currentUser={this.state.currentUser}
                 />
