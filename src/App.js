@@ -170,11 +170,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <h1>Hogwarts</h1>
-        </header>
+        </header> */}
         <Router>
-          <NavLink to="/login">Log Out</NavLink>
+          {/* <NavLink to="/login">Log Out</NavLink> */}
           <div>
             <Route
               exact

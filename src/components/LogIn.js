@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class LogIn extends React.Component {
   state = {
     username: "",
@@ -44,7 +45,10 @@ class LogIn extends React.Component {
   render() {
     return (
       <div className="App">
+        <div className="login">
         <header className="App-header">
+          <h1>Hogwarts</h1>
+          <h3>Welcome Back to the Wizarding World of Writing</h3>
           <h1>Log into your Account!</h1>
           <form
             onSubmit={(e) => {
@@ -67,6 +71,7 @@ class LogIn extends React.Component {
             <input type="submit" />
           </form>
         </header>
+        </div>
       </div>
     );
   }
