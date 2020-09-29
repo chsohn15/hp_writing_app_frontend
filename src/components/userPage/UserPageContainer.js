@@ -4,6 +4,7 @@ import ActivityContainer from "./ActivityContainer.js";
 import TeacherForm from "./TeacherForm";
 import TeacherHome from "./Teacher/TeacherHome";
 import { render } from "react-dom";
+import StudentAnnouncements from './StudentAnnouncements'
 
 const UserPageContainer = (props) => {
   // if user logged in and student => show student page
@@ -40,6 +41,11 @@ const UserPageContainer = (props) => {
             alterEgo={props.alterEgo}
             currentUser={props.currentUser}
           />
+          {props.currentUser.teacher.announcements ? 
+          <StudentAnnouncements currentUser={props.currentUser}/>
+          : 
+          null
+          }
           <ActivityContainer
             currentUser={props.currentUser}
             assignments={props.assignments}
