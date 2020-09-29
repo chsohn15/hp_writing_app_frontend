@@ -58,7 +58,7 @@ class App extends React.Component {
       });
   }
 
-  setCurrentUserByLogin = (id) => {
+  setCurrentUser = (id) => {
     fetch(`http://localhost:3000/users/${id}`, {
       method: "GET",
       headers: {
@@ -172,10 +172,7 @@ class App extends React.Component {
               exact
               path="/signup"
               render={(routerProps) => (
-                <SignUp
-                  {...routerProps}
-                  setCurrentUser={this.setCurrentUserByLogin}
-                />
+                <SignUp {...routerProps} setCurrentUser={this.setCurrentUser} />
               )}
             />
             <Route
@@ -185,7 +182,7 @@ class App extends React.Component {
                 <LogIn
                   useStyle={this.useStyles}
                   {...routerProps}
-                  setCurrentUser={this.setCurrentUserByLogin}
+                  setCurrentUser={this.setCurrentUser}
                   currentUser={this.state.currentUser}
                 />
               )}
@@ -233,6 +230,7 @@ class App extends React.Component {
                 <Assignment
                   {...routerProps}
                   currentUser={this.state.currentUser}
+                  setCurrentUser={this.setCurrentUser}
                 />
               )}
             />
