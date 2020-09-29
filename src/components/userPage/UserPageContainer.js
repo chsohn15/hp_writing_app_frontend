@@ -6,16 +6,17 @@ import TeacherHome from "./TeacherHome";
 import { render } from "react-dom";
 
 const UserPageContainer = (props) => {
-  //let character = props.character
-  const teacher = { ...props.currentUser.teacher };
+  
+  let teacher = null
+  if (props.currentUser.teacher_id){
+    teacher =  { ...props.currentUser.teacher };
+  }
   let id = localStorage.user_id;
-
-  //props.renderUserPage(id)
 
   return props.currentUser.is_student ? (
     <div>
       <div>{props.currentUser.first_name}'s Home Page</div>
-      {teacher.id ? (
+      {teacher ? (
         <div>My Teacher: {teacher.first_name + " " + teacher.last_name}</div>
       ) : (
         <div>
