@@ -52,6 +52,7 @@ class SignUp extends React.Component {
       localStorage.user_id = data.user_id 
       localStorage.username = data.username
       this.props.setCurrentUser(data.user_id)
+      setTimeout(() => this.directToSortingHat(), 50);
     })
       
 
@@ -68,7 +69,7 @@ class SignUp extends React.Component {
           <h1>Sign Up for an Account!</h1>
           <form onSubmit={(e) => {
             this.signUp(e)
-            this.directToSortingHat()
+            // this.directToSortingHat()
           }
             }>
             <label>First Name</label>

@@ -82,7 +82,6 @@ export default class SQuestionContainer extends React.Component {
     }
     return question ? (
       <div>
-        Sorting Hat Question
         <h3>
           Question {question.number}: {question.question}
         </h3>
