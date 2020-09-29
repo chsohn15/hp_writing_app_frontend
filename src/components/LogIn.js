@@ -29,10 +29,10 @@ class LogIn extends React.Component {
       .then((res) => res.json())
       .then((userInfo) => {
         console.log(userInfo)
+        this.props.setCurrentUser(userInfo.user_id);
         localStorage.token = userInfo.token;
         localStorage.user_id = userInfo.user_id;
         localStorage.username = userInfo.username;
-        this.props.setCurrentUser(userInfo.user_id);
       })
       .then(() => this.props.history.push("/user_home"));
   };
