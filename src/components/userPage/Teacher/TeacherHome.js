@@ -40,7 +40,8 @@ const TeacherHome = (props) => {
       .then((ann) => {
         addAnnouncement([ann,...announcements])
         });
-
+    
+    e.target.reset()
   };
 
   const deleteAnn = (id) => {
