@@ -81,7 +81,8 @@ export default class SQuestionContainer extends React.Component {
       console.log(this.state.answeredQuestions);
     }
     return question ? (
-      <div>
+      <div className="sorting_question" style={{backgroundImage: "url('https://images.ctfassets.net/usf1vwtuqyxm/3oHASBLOr6uWCQwUA8MWoO/f48ffdb9bd5dfd8051fa256f72c338a5/SortingHat-PM-B2C12M1-DumbledoreOffice-Moment.jpg?w=768')"}}>
+        <h1>Sorting Hat</h1>
         <h3>
           Question {question.number}: {question.question}
         </h3>

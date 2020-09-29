@@ -55,11 +55,9 @@ class SignUp extends React.Component {
       setTimeout(() => this.directToSortingHat(), 50);
     })
       
-
   }
-
   directToSortingHat =() => {
-    this.props.history.push("/sorting_hat")
+    this.props.history.push("/sorting_hat_start")
   }
  
   render(){

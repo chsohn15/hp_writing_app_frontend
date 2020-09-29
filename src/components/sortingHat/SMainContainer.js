@@ -68,7 +68,7 @@ class SMainContainer extends React.Component {
   render() {
     return (
       <div>
-        <h1>Sorting Hat - maybe make into header component</h1>
+        
         {this.state.onQuiz ? (
           <SQuestionContainer finishQuiz={this.finishQuiz} />
         ) : (

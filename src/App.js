@@ -4,6 +4,7 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import Welcome from "./components/Welcome";
 import SMainContainer from "./components/sortingHat/SMainContainer";
+import SStart from "./components/sortingHat/SStart";
 import UserPageContainer from "./components/userPage/UserPageContainer";
 import TeacherHome from "./components/userPage/Teacher/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
@@ -185,6 +186,13 @@ class App extends React.Component {
               path="/signup"
               render={(routerProps) => (
                 <SignUp {...routerProps} setCurrentUser={this.setCurrentUser} />
+              )}
+            />
+            <Route
+              exact
+              path="/sorting_hat_start"
+              render={(routerProps) => (
+                <SStart {...routerProps} currentUser={this.state.currentUser} />
               )}
             />
             <Route

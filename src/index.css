@@ -27,4 +27,24 @@ body, html {
 }
 
 
+.sstart{
+  background-image: url("https://static.tumblr.com/a96c2a38b7ce7f76b1b41b83a91dc637/gjlyoqi/c3Eo0hi7c/tumblr_static_tumblr_static_bbg02y5vu1w0os8c88804gsow_focused_v3.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.sorting_question{
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
 
