@@ -122,6 +122,10 @@ class App extends React.Component {
 
   logOut = () => {
     localStorage.clear();
+
+    this.setState({
+      currentUser: null
+    })
   };
 
   directToLogIn = () => {
@@ -215,7 +219,7 @@ class App extends React.Component {
             <Route
               exact
               path="/user_home"
-              render={() => (
+              render={(routerProps) => (
                 <UserPageContainer
                   renderUserPage={this.renderUserPage}
                   alterEgo={this.state.alterEgo}
@@ -223,6 +227,7 @@ class App extends React.Component {
                   assignments={this.state.assignments}
                   teachers={this.state.teachers}
                   setTeacher={this.setTeacher}
+                  {...routerProps}
 
                 />
               )}
