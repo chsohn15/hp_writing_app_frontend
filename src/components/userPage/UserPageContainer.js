@@ -41,7 +41,7 @@ const UserPageContainer = (props) => {
             alterEgo={props.alterEgo}
             currentUser={props.currentUser}
           />
-          {props.currentUser.teacher.announcements ? 
+          {props.currentUser.teacher && props.currentUser.teacher.announcements ? 
           <StudentAnnouncements currentUser={props.currentUser}/>
           : 
           null
