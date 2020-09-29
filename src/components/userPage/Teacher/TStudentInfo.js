@@ -1,7 +1,7 @@
 import { render } from "react-dom";
 import React from "react";
 import TStudentAssignment from "./TStudentAssignment";
-import GradedAssignment from "./GradedAssignment";
+import GradedAssignment from "../GradedAssignment";
 
 const TStudentInfo = (props) => {
   const student = props.location.student;

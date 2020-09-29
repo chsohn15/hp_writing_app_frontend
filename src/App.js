@@ -4,10 +4,10 @@ import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
 import SMainContainer from "./components/sortingHat/SMainContainer";
 import UserPageContainer from "./components/userPage/UserPageContainer";
-import TeacherHome from "./components/userPage/TeacherHome";
+import TeacherHome from "./components/userPage/Teacher/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
 import CompletedAssignment from "./components/Assignments/CompletedAssignment.js";
-import TStudentInfo from "./components/userPage/TStudentInfo";
+import TStudentInfo from "./components/userPage/Teacher/TStudentInfo";
 import { withStyles } from "@material-ui/core/styles";
 
 class App extends React.Component {

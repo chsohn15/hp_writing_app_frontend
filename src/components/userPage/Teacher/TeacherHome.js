@@ -1,6 +1,6 @@
 import React from "react";
-import UserInfoCard from "./UserInfoCard";
-import ActivityContainer from "./ActivityContainer.js";
+import UserInfoCard from "../UserInfoCard";
+import ActivityContainer from "../ActivityContainer.js";
 import { render } from "react-dom";
 import { NavLink } from "react-router-dom";
 import TStudentInfo from "./TStudentInfo";
@@ -15,7 +15,7 @@ const TeacherHome = (props) => {
   
   useEffect(()=>{
     if (props.currentUser.announcements) {
-      addAnnouncement([...props.currentUser.announcements])
+      addAnnouncement([...props.currentUser.announcements.reverse()])
     }},[props.currentUser.announcements]);
 
 
@@ -38,13 +38,24 @@ const TeacherHome = (props) => {
     fetch("http://localhost:3000/announcements", configObj)
       .then((res) => res.json())
       .then((ann) => {
-        addAnnouncement([...announcements, ann])
+        addAnnouncement([ann,...announcements])
         });
 
-    // return props.announcements
-    //   ? props.addAnnouncement([...props.announcements, e.target[0].value])
-    //   : null;
   };
+
+  const deleteAnn = (id) => {
+
+    fetch(`http://localhost:3000/announcements/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    })
+
+    let updatedAnn = announcements.filter(ann => ann.id !== id)
+    addAnnouncement(updatedAnn)
+
+  }
 
   return (
     <div>
@@ -64,7 +75,10 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <div>{ann.content}</div>;
+              return <div>
+                <div>{ann.content}</div>
+                <button onClick={() => deleteAnn(ann.id)}>Delete</button>
+                </div>;
             })
           }
         </div>

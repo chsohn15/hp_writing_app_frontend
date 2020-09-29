@@ -2,7 +2,7 @@ import React from "react";
 import UserInfoCard from "./UserInfoCard";
 import ActivityContainer from "./ActivityContainer.js";
 import TeacherForm from "./TeacherForm";
-import TeacherHome from "./TeacherHome";
+import TeacherHome from "./Teacher/TeacherHome";
 import { render } from "react-dom";
 
 const UserPageContainer = (props) => {
