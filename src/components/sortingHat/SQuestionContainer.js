@@ -75,13 +75,22 @@ export default class SQuestionContainer extends React.Component {
     }
   };
 
+  imageArray = [
+    "https://static1.srcdn.com/wordpress/wp-content/uploads/2017/08/Harry-Potter-Goblet-of-Fire-maze.jpg?q=50&fit=crop&w=740&h=333",
+    null,
+    "https://vignette.wikia.nocookie.net/pottermore/images/9/9d/B1C10M3.jpg/revision/latest?cb=20120607124755",
+    null, 
+    "https://images.ctfassets.net/usf1vwtuqyxm/1Xu3upypGYkU8G2EW02oeg/2da84507e8a3588a5bf13f05f89ec341/HoraceSlughorn_PM_B6C9M1_SlughornsPotionsClass_Moment.jpg",
+    null]
+
+    // currentImage= imageArray[this.state.currentQuestion.question_number-1]
   render() {
     const question = this.displayQuestion();
     if (this.state.answeredQuestions.values.length === 6) {
       console.log(this.state.answeredQuestions);
     }
     return question ? (
-      <div className="sorting_question" style={{backgroundImage: "url('https://images.ctfassets.net/usf1vwtuqyxm/3oHASBLOr6uWCQwUA8MWoO/f48ffdb9bd5dfd8051fa256f72c338a5/SortingHat-PM-B2C12M1-DumbledoreOffice-Moment.jpg?w=768')"}}>
+      <div className="sorting_question" style={{backgroundImage: `url(${this.imageArray[this.state.currentQuestion.questionNumber - 1]})`}}>
         <h1>Sorting Hat</h1>
         <h3>
           Question {question.number}: {question.question}
