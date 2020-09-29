@@ -71,19 +71,6 @@ class App extends React.Component {
           currentUser: user,
         });
       });
-
-    fetch("http://localhost:3000/assignments", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((assignments) => {
-        this.setState({
-          assignments,
-        });
-      });
   };
 
   setUserHouse = (house) => {
@@ -124,8 +111,8 @@ class App extends React.Component {
     localStorage.clear();
 
     this.setState({
-      currentUser: null
-    })
+      currentUser: null,
+    });
   };
 
   directToLogIn = () => {
@@ -152,7 +139,7 @@ class App extends React.Component {
   };
 
   gradePaper = (sa_id, score, feedback) => {
-    let scoreInt = parseInt(score)
+    let scoreInt = parseInt(score);
     let configObj = {
       method: "PATCH",
       headers: {
@@ -161,16 +148,14 @@ class App extends React.Component {
       },
       body: JSON.stringify({
         score: scoreInt,
-        feedback: feedback
-      })
-    }
-    
-    fetch(`http://localhost:3000/student_assignments/`+ sa_id, configObj)
-    .then(res=>res.json())
-    .then(sa=>console.log(sa) 
-    )
-  
-  }
+        feedback: feedback,
+      }),
+    };
+
+    fetch(`http://localhost:3000/student_assignments/` + sa_id, configObj)
+      .then((res) => res.json())
+      .then((sa) => console.log(sa));
+  };
 
   render() {
     return (
@@ -179,7 +164,9 @@ class App extends React.Component {
           <h1>Hogwarts</h1>
         </header> */}
         <Router>
-          <NavLink onClick={this.logOut} to="/login">Log Out</NavLink>
+          <NavLink onClick={this.logOut} to="/login">
+            Log Out
+          </NavLink>
           <div>
             <Route
               exact
@@ -228,14 +215,15 @@ class App extends React.Component {
                   teachers={this.state.teachers}
                   setTeacher={this.setTeacher}
                   {...routerProps}
-
                 />
               )}
             />
             <Route
               exact
               path="/student_info"
-              render={(routerProps) => <TStudentInfo gradePaper={this.gradePaper} {...routerProps} />}
+              render={(routerProps) => (
+                <TStudentInfo gradePaper={this.gradePaper} {...routerProps} />
+              )}
             />
             <Route
               exact

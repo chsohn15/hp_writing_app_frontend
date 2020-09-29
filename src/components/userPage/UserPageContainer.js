@@ -6,43 +6,94 @@ import TeacherHome from "./TeacherHome";
 import { render } from "react-dom";
 
 const UserPageContainer = (props) => {
-  if (!props.currentUser) 
-    props.history.push("/login") 
+  // if user logged in and student => show student page
+  //if user logged in and teacher => return teacher home
+  //default = show nothing
 
+  // if (!props.currentUser) props.history.push("/login");
 
-  let teacher = null
-  if (props.currentUser && props.currentUser.teacher_id){
-    teacher =  { ...props.currentUser.teacher };
-  }
-  let id = localStorage.user_id;
+  switch (true) {
+    case props.currentUser && props.currentUser.is_student:
+      let teacher = null;
+      if (props.currentUser.teacher_id) {
+        teacher = { ...props.currentUser.teacher };
+      }
 
-  return props.currentUser && props.currentUser.is_student ? (
-    <div>
-      <div>{props.currentUser.first_name}'s Home Page</div>
-      {teacher ? (
-        <div>My Teacher: {teacher.first_name + " " + teacher.last_name}</div>
-      ) : (
+      return (
         <div>
-          {" "}
-          <TeacherForm
-            setTeacher={props.setTeacher}
-            teachers={props.teachers}
+          <div>{props.currentUser.first_name}'s Home Page</div>
+          {teacher ? (
+            <div>
+              My Teacher: {teacher.first_name + " " + teacher.last_name}
+            </div>
+          ) : (
+            <div>
+              {" "}
+              <TeacherForm
+                setTeacher={props.setTeacher}
+                teachers={props.teachers}
+              />
+            </div>
+          )}
+
+          <UserInfoCard
+            alterEgo={props.alterEgo}
+            currentUser={props.currentUser}
+          />
+          <ActivityContainer
+            currentUser={props.currentUser}
+            assignments={props.assignments}
           />
         </div>
-      )}
-
-      <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
-      <ActivityContainer currentUser={props.currentUser} assignments={props.assignments} />
-    </div>
-  ) : (
-    <TeacherHome
-      assignments={props.assignments}
-      alterEgo={props.alterEgo}
-      currentUser={props.currentUser}
-      teachers={props.teachers}
-
-    />
-  );
+      );
+    case props.currentUser && !props.currentUser.is_student:
+      return (
+        <TeacherHome
+          assignments={props.assignments}
+          alterEgo={props.alterEgo}
+          currentUser={props.currentUser}
+          teachers={props.teachers}
+        />
+      );
+    case !props.currentUser:
+      props.history.push("/login");
+    default:
+      return null;
+  }
 };
+
+//   let teacher = null
+//   if (props.currentUser && props.currentUser.teacher_id){
+//     teacher =  { ...props.currentUser.teacher };
+//   }
+
+//   return props.currentUser && props.currentUser.is_student ? (
+//     <div>
+//       <div>{props.currentUser.first_name}'s Home Page</div>
+//       {teacher ? (
+//         <div>My Teacher: {teacher.first_name + " " + teacher.last_name}</div>
+//       ) : (
+//         <div>
+//           {" "}
+//           <TeacherForm
+//             setTeacher={props.setTeacher}
+//             teachers={props.teachers}
+//           />
+//         </div>
+//       )}
+
+//       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
+//       <ActivityContainer currentUser={props.currentUser} assignments={props.assignments} />
+//     </div>
+//   ) : (
+//     <TeacherHome
+//       assignments={props.assignments}
+//       alterEgo={props.alterEgo}
+//       currentUser={props.currentUser}
+//       teachers={props.teachers}
+
+//     />
+//   );
+// };
 
 export default UserPageContainer;
