@@ -135,7 +135,11 @@ class App extends React.Component {
 
     fetch(`http://localhost:3000/users/${studentId}`, configObj)
       .then((res) => res.json())
-      .then((student) => console.log(student));
+      .then((student) => {
+        this.setState({
+          currentUser: student,
+        });
+      });
   };
 
   gradePaper = (sa_id, score, feedback) => {
