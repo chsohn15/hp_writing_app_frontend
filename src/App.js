@@ -119,7 +119,6 @@ class App extends React.Component {
 
   directToLogIn = () => {
     this.routerProps.history.push("/login");
-    // localStorage.clear()
   };
 
   setTeacher = (id) => {
@@ -161,6 +160,9 @@ class App extends React.Component {
     fetch(`http://localhost:3000/student_assignments/` + sa_id, configObj)
       .then((res) => res.json())
       .then((sa) => console.log(sa));
+
+      this.setCurrentUser(this.state.currentUser.id)
+
   };
 
   render() {

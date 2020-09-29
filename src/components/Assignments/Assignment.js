@@ -40,7 +40,7 @@ class Assignment extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text,
+        text: this.state.studentParagraph,
         assignment_id: this.props.location.assignmentProps.id,
         student_id: this.props.currentUser.id,
       }),

@@ -7,11 +7,6 @@ import { render } from "react-dom";
 import StudentAnnouncements from './StudentAnnouncements'
 
 const UserPageContainer = (props) => {
-  // if user logged in and student => show student page
-  //if user logged in and teacher => return teacher home
-  //default = show nothing
-
-  // if (!props.currentUser) props.history.push("/login");
 
   switch (true) {
     case props.currentUser && props.currentUser.is_student:
