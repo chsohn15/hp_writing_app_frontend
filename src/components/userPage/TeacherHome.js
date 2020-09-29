@@ -5,14 +5,46 @@ import { render } from "react-dom";
 import { NavLink } from "react-router-dom";
 import TStudentInfo from "./TStudentInfo";
 import AnnouncementForm from "./AnnouncementForm.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const TeacherHome = (props) => {
   let [announcements, addAnnouncement] = useState(
-    props.currentUser.announcements
+    props.currentUser.announcements ? props.currentUser.announcements : []
   );
+  
+  
+  useEffect(()=>{
+    if (props.currentUser.announcements) {
+      addAnnouncement([...props.currentUser.announcements])
+    }},[props.currentUser.announcements]);
 
-  // let a = { ...props.currentUser.announcements };
+
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.token}`,
+      },
+      body: JSON.stringify({
+        content: e.target[0].value,
+        teacher_id: props.currentUser.id,
+      }),
+    };
+
+    fetch("http://localhost:3000/announcements", configObj)
+      .then((res) => res.json())
+      .then((ann) => {
+        addAnnouncement([...announcements, ann])
+        });
+
+    // return props.announcements
+    //   ? props.addAnnouncement([...props.announcements, e.target[0].value])
+    //   : null;
+  };
 
   return (
     <div>
@@ -23,14 +55,18 @@ const TeacherHome = (props) => {
         addAnnouncement={addAnnouncement}
         announcements={announcements}
         currentUser={props.currentUser}
+        submitForm={submitForm}
       />
       <br />
       {props.currentUser.announcements ? (
         <div>
           <h2>My Announcements</h2>
-          {props.currentUser.announcements.map((ann) => {
-            return <div>{ann.content}</div>;
-          })}
+          {
+            // props.currentUser.announcements
+            announcements.map((ann) => {
+              return <div>{ann.content}</div>;
+            })
+          }
         </div>
       ) : null}
       <div></div>

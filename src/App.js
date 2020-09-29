@@ -217,6 +217,7 @@ class App extends React.Component {
                   teachers={this.state.teachers}
                   setTeacher={this.setTeacher}
                   {...routerProps}
+                  setCurrentUser={this.setCurrentUser}
                 />
               )}
             />

@@ -53,6 +53,7 @@ const UserPageContainer = (props) => {
           alterEgo={props.alterEgo}
           currentUser={props.currentUser}
           teachers={props.teachers}
+          setCurrentUser={props.setCurrentUser}
         />
       );
     case !props.currentUser:
