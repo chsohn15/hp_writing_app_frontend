@@ -1,7 +1,20 @@
 import React from "react";
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import { withStyles } from "@material-ui/core/styles";
 
 
 class LogIn extends React.Component {
+  
   state = {
     username: "",
     password: "",
@@ -42,13 +55,17 @@ class LogIn extends React.Component {
     this.props.history.push("/user_home");
   };
 
+
+
+  
   render() {
-    return (
+   return(
       <div className="App">
         <div className="login">
         <header className="App-header">
-          <h1>Hogwarts</h1>
-          <h3>Welcome Back to the Wizarding World of Writing</h3>
+          <h1>The</h1>
+          <img style={{width: "30%", height: "10%", color: "white", justifyContent: "center"}}src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/2180px-Harry_Potter_wordmark.svg.png"/>
+          <h1>Writing App</h1>
           <h1>Log into your Account!</h1>
           <form
             onSubmit={(e) => {

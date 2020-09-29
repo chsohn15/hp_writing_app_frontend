@@ -8,6 +8,7 @@ import TeacherHome from "./components/userPage/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
 import CompletedAssignment from "./components/Assignments/CompletedAssignment.js";
 import TStudentInfo from "./components/userPage/TStudentInfo";
+import { withStyles } from "@material-ui/core/styles";
 
 class App extends React.Component {
   state = {
@@ -191,6 +192,7 @@ class App extends React.Component {
               path="/login"
               render={(routerProps) => (
                 <LogIn
+                  useStyle={this.useStyles}
                   {...routerProps}
                   setCurrentUser={this.setCurrentUserByLogin}
                 />
