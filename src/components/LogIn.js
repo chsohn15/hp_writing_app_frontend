@@ -5,6 +5,7 @@ class LogIn extends React.Component {
   state = {
     username: "",
     password: "",
+    errors: []
   };
   handleChange = (e) => {
     this.setState({
@@ -30,12 +31,20 @@ class LogIn extends React.Component {
       .then((res) => res.json())
       .then((userInfo) => {
         console.log(userInfo)
-        this.props.setCurrentUser(userInfo.user_id);
-        localStorage.token = userInfo.token;
-        localStorage.user_id = userInfo.user_id;
-        localStorage.username = userInfo.username;
+        if (userInfo.errors){
+          this.setState({
+            errors: [...userInfo.errors]
+          })
+        }
+        else{
+          this.props.setCurrentUser(userInfo.user_id);
+          localStorage.token = userInfo.token;
+          localStorage.user_id = userInfo.user_id;
+          localStorage.username = userInfo.username;
+          this.goToUserPage()
+        }
+        
       })
-      .then(() => this.props.history.push("/user_home"));
   };
 
   goToUserPage = () => {
@@ -73,6 +82,12 @@ class LogIn extends React.Component {
               type="password"
             />
             <input type="submit" />
+            {this.state.errors.length > 0 ?
+            this.state.errors.map(error => <div>{error}</div>)
+            :
+            null
+            }
+            
           </form>
         </header>
         </div>

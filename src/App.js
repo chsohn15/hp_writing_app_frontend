@@ -175,7 +175,7 @@ class App extends React.Component {
           <h1>Hogwarts</h1>
         </header> */}
         <Router>
-          {/* <NavLink to="/login">Log Out</NavLink> */}
+          <NavLink onClick={this.logOut} to="/login">Log Out</NavLink>
           <div>
             <Route
               exact
