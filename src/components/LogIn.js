@@ -28,10 +28,12 @@ class LogIn extends React.Component {
     fetch("http://localhost:3000/login", configObj)
       .then((res) => res.json())
       .then((userInfo) => {
+        console.log(userInfo)
         localStorage.token = userInfo.token;
         localStorage.user_id = userInfo.user_id;
         localStorage.username = userInfo.username;
         this.props.setCurrentUser(userInfo.user_id);
+        this.props.history.push("/user_home");
       });
   };
 
@@ -47,7 +49,7 @@ class LogIn extends React.Component {
           <form
             onSubmit={(e) => {
               this.logIn(e);
-              this.goToUserPage();
+              //this.goToUserPage();
             }}
           >
             <label>Username</label>
