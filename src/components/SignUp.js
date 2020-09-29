@@ -64,7 +64,7 @@ class SignUp extends React.Component {
  
   render(){
   return (
-      <div className="App">
+      <div className="signup">
         <header className="App-header">
           <h1>Sign Up for an Account!</h1>
           <form onSubmit={(e) => {

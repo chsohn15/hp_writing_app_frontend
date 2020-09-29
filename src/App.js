@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
+import Welcome from "./components/Welcome";
 import SMainContainer from "./components/sortingHat/SMainContainer";
 import UserPageContainer from "./components/userPage/UserPageContainer";
 import TeacherHome from "./components/userPage/Teacher/TeacherHome";
@@ -172,6 +173,13 @@ class App extends React.Component {
             Log Out
           </NavLink>
           <div>
+          <Route
+              exact
+              path="/welcome"
+              render={(routerProps) => (
+                <Welcome {...routerProps} />
+              )}
+            />
             <Route
               exact
               path="/signup"

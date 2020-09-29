@@ -18,11 +18,13 @@ body, html {
   height: 100%;
 }
 
-.login {
+.login, .welcome, .signup {
   background-image: url("https://images.ctfassets.net/usf1vwtuqyxm/3qDq1So6CseO6ek4MyuE0a/41f1755b77c83e22252a91e31297447c/FiliusFlitwick_PM_B1C10M2_CharmsClass_Moment.jpg");
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
 
