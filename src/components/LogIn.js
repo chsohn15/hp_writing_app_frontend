@@ -50,7 +50,7 @@ class LogIn extends React.Component {
   };
 
   render() {
-    return (
+    return this.props.currentUser ? (
       <div className="App">
         <div className="login">
           <header className="App-header">
@@ -92,7 +92,11 @@ class LogIn extends React.Component {
           </header>
         </div>
       </div>
+    ) : (
+      
     );
+
+    null;
   }
 }
 
