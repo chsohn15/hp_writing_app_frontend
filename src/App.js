@@ -186,6 +186,7 @@ class App extends React.Component {
                   useStyle={this.useStyles}
                   {...routerProps}
                   setCurrentUser={this.setCurrentUserByLogin}
+                  currentUser={this.state.currentUser}
                 />
               )}
             />

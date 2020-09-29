@@ -50,49 +50,55 @@ class LogIn extends React.Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <div className="login">
-          <header className="App-header">
-            <h1>The</h1>
-            <img
-              style={{
-                width: "30%",
-                height: "10%",
-                color: "white",
-                justifyContent: "center",
-              }}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/2180px-Harry_Potter_wordmark.svg.png"
-            />
-            <h1>Writing App</h1>
-            <h1>Log into your Account!</h1>
-            <form
-              onSubmit={(e) => {
-                this.logIn(e);
-                //this.goToUserPage();
-              }}
-            >
-              <label>Username</label>
-              <input
-                onChange={(e) => this.handleChange(e)}
-                name="username"
-                type="text"
-              />
-              <label>Password</label>
-              <input
-                onChange={(e) => this.handleChange(e)}
-                name="password"
-                type="password"
-              />
-              <input type="submit" />
-              {this.state.errors.length > 0
-                ? this.state.errors.map((error) => <div>{error}</div>)
-                : null}
-            </form>
-          </header>
-        </div>
-      </div>
-    );
+    switch (true) {
+      case !this.props.currentUser:
+        return (
+          <div className="App">
+            <div className="login">
+              <header className="App-header">
+                <h1>The</h1>
+                <img
+                  style={{
+                    width: "30%",
+                    height: "10%",
+                    color: "white",
+                    justifyContent: "center",
+                  }}
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/2180px-Harry_Potter_wordmark.svg.png"
+                />
+                <h1>Writing App</h1>
+                <h1>Log into your Account!</h1>
+                <form
+                  onSubmit={(e) => {
+                    this.logIn(e);
+                    //this.goToUserPage();
+                  }}
+                >
+                  <label>Username</label>
+                  <input
+                    onChange={(e) => this.handleChange(e)}
+                    name="username"
+                    type="text"
+                  />
+                  <label>Password</label>
+                  <input
+                    onChange={(e) => this.handleChange(e)}
+                    name="password"
+                    type="password"
+                  />
+                  <input type="submit" />
+                  {this.state.errors.length > 0
+                    ? this.state.errors.map((error) => <div>{error}</div>)
+                    : null}
+                </form>
+              </header>
+            </div>
+          </div>
+        );
+      default:
+        this.goToUserPage();
+        return null;
+    }
   }
 }
 
