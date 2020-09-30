@@ -10,7 +10,7 @@ const StudentAnnouncements = (props) => {
     
     return (
       <div>
-        <h2>Ms. {props.currentUser.teacher.last_name}'s Announcements:</h2>
+        <h2>Professor {props.currentUser.teacher.last_name}'s Announcements:</h2>
 
 
     {props.currentUser.teacher.announcements.map(ann=>{
