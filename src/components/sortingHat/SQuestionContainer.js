@@ -12,6 +12,7 @@ export default class SQuestionContainer extends React.Component {
     answeredQuestions: {
       values: [],
     },
+    horizontal: false
   };
 
   componentDidMount() {
@@ -53,6 +54,7 @@ export default class SQuestionContainer extends React.Component {
   };
 
   handleClick = (value) => {
+
     let nextQuestionNumber = this.state.currentQuestion.questionNumber + 1;
 
     if (nextQuestionNumber > this.state.questions.length) {
@@ -65,7 +67,7 @@ export default class SQuestionContainer extends React.Component {
         this.findHouse
       );
     } else {
-      console.log(value);
+
       this.setState({
         answeredQuestions: {
           values: [...this.state.answeredQuestions.values, value],
@@ -73,8 +75,11 @@ export default class SQuestionContainer extends React.Component {
         currentQuestion: {
           questionNumber: nextQuestionNumber,
         },
+        horizontal: !this.state.horizontal
       });
     }
+
+
   };
 
   imageArray = [
@@ -85,7 +90,17 @@ export default class SQuestionContainer extends React.Component {
     "https://images.ctfassets.net/usf1vwtuqyxm/1Xu3upypGYkU8G2EW02oeg/2da84507e8a3588a5bf13f05f89ec341/HoraceSlughorn_PM_B6C9M1_SlughornsPotionsClass_Moment.jpg",
     null]
 
-    // currentImage= imageArray[this.state.currentQuestion.question_number-1]
+
+
+  changeOrientation = () => {
+    if (this.state.currentQuestion === 2 || this.state.currentQuestion === 4 || this.state.currentQuestion === 6){
+      return true
+    }
+    else{
+      return false
+    }
+  }
+
   render() {
     const question = this.displayQuestion();
     if (this.state.answeredQuestions.values.length === 6) {
@@ -99,7 +114,7 @@ export default class SQuestionContainer extends React.Component {
           Question {question.number}: {question.question}
         </Card.Title>
         </Card.Body>
-        <ListGroup  vertical className="list-group-flush" variant="flush">
+        <ListGroup  horizontal={this.state.horizontal} className="list-group-flush horizontal" variant="flush">
         {question.sorting_hat_answers.map((answer) => (
           <ListGroupItem>
             <SAnswer
