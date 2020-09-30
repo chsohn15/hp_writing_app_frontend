@@ -7,6 +7,8 @@ class Assignment extends React.Component {
     studentParagraph: "",
     currentIndex: 1,
     display: "none",
+    errors: [],
+    grammarCheckOn: false
   };
 
   compile = (event) => {
@@ -66,6 +68,33 @@ class Assignment extends React.Component {
     });
   };
 
+  checkGrammar = (text) => {
+    let errors = []
+
+    for (var x = 0; x < text.length; x++)
+    {
+      let c = text.charAt(x);
+      let d = text.charAt(x+1)
+      let e = text.charAt(x+2)
+      let f = text.charAt(x+3)
+    
+  
+      if (c === " " && d === "i" && e===" "){
+        errors = [...errors, "Please capitalize all instances of 'I'."]
+      }
+      if (c === "d" && d === "o" &&e==="n" && f ==="t"){
+        errors = [...errors, "Please add an apostrophe to 'don't.'"]
+      }
+    }
+
+    if (errors.length > 1){
+      this.setState({
+        errors: [...errors]
+      })
+    }
+  }
+  
+
   render() {
     const assignment = this.props.location.assignmentProps;
     return (
@@ -107,7 +136,7 @@ class Assignment extends React.Component {
             value={this.state.studentParagraph}
           />
           <br />
-          <SpellCheckButton />
+          <SpellCheckButton grammarCheckOn={this.state.grammarCheckOn} text={this.state.studentParagraph} errors={this.state.errors} checkGrammar={this.checkGrammar}/>
           <button type="submit">
             <NavLink
               onClick={this.submitParagraph.bind(this)}
