@@ -106,6 +106,7 @@ class App extends React.Component {
           currentUser: user,
         });
       });
+
   };
 
   logOut = () => {
@@ -158,9 +159,7 @@ class App extends React.Component {
 
     fetch(`http://localhost:3000/student_assignments/` + sa_id, configObj)
       .then((res) => res.json())
-      .then((sa) => console.log(sa));
-
-      this.setCurrentUser(this.state.currentUser.id)
+      .then((sa) => {this.setCurrentUser(this.state.currentUser.id)});
 
   };
 

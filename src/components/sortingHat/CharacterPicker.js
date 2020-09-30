@@ -14,8 +14,8 @@ const CharacterPicker = (props) => {
           </Row>
           <Row>
           {props.houseCharacters.map((character) => (
-          <Col>
-            <Character
+          <Col >
+            <Character 
               currentUser={props.currentUser}
               routerProps={props.routerProps}
               character={character}
