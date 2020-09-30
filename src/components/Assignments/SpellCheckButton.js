@@ -2,14 +2,15 @@ import React from 'react'
 import {useState} from 'react'
 
 
-const SpellCheck = (props) => {
+const SpellCheckButton = (props) => {
 
 let text = "dont hi am here"
 
 const [errors, addError] = useState([])
 
-for (var x = 0; x < text.length; x++)
-{
+const checkGrammar = () => {
+  for (var x = 0; x < text.length; x++)
+  {
     let c = text.charAt(x);
     let d = text.charAt(x+1)
     let e = text.charAt(x+2)
@@ -22,10 +23,10 @@ for (var x = 0; x < text.length; x++)
       console.log("Please add an apostrophe to 'don't'")
     }
 }
+}
 
 return(
     <button>Ask a Prefect to Check Your Grammar!</button>
-)
-}
+)}
 
-export default SpellCheck
+export default SpellCheckButton

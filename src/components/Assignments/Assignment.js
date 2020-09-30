@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SpellCheckButton from "./SpellCheckButton.js"
 
 class Assignment extends React.Component {
   state = {
@@ -86,11 +87,13 @@ class Assignment extends React.Component {
           {this.state.currentIndex < assignment.assignment_questions.length ? (
             <button onClick={() => this.showNextQuestion()}>Next</button>
           ) : (
+            <div>
             <input
               onClick={() => this.displayParagraph()}
               type="submit"
               value="Turn Into a Paragraph!"
             />
+            </div>
           )}
         </form>
         <form
@@ -104,6 +107,7 @@ class Assignment extends React.Component {
             value={this.state.studentParagraph}
           />
           <br />
+          <SpellCheckButton />
           <button type="submit">
             <NavLink
               onClick={this.submitParagraph.bind(this)}
