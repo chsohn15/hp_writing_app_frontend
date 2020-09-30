@@ -14,7 +14,7 @@ const StudentAnnouncements = (props) => {
 
 
     {props.currentUser.teacher.announcements.map(ann=>{
-    return (<div >
+    return (<div style={{"padding-bottom": "20px"}}>
         <Toast style={{"maxWidth": "500px"}}>
         <Toast.Header>{formatDate(ann.created_at)}</Toast.Header>
         <Toast.Body>{ann.content}</Toast.Body>

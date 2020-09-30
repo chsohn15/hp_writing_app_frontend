@@ -87,14 +87,15 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <Toast style={{"maxWidth": "700px", opacity: "1.0"}}>
+              return <div><Toast style={{"maxWidth": "700px", opacity: "1.0"}}>
                 <Toast.Body style={{"font-size": "15px"}}>
                   <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   
                 <i class="fa fa-close float-right" onClick={() => deleteAnn(ann.id)} style={{cursor:"pointer"}}/>
                 </Toast.Body>
                   <Toast.Body style={{"font-size": "15px"}}>{ann.content}</Toast.Body>
-                </Toast>;
+                </Toast>
+                </div>;
             })
           }
         </div>
