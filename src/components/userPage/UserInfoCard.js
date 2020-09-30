@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 
 const UserInfoCard = (props) => {
-    const {character_id, first_name, last_name, username, house} = props.currentUser
+    const {first_name, last_name, username, house} = props.currentUser
 
     const character = {...props.currentUser.character}
 

@@ -10,7 +10,6 @@ import TeacherHome from "./components/userPage/Teacher/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
 import CompletedAssignment from "./components/Assignments/CompletedAssignment.js";
 import TStudentInfo from "./components/userPage/Teacher/TStudentInfo";
-import { withStyles } from "@material-ui/core/styles";
 
 class App extends React.Component {
   state = {

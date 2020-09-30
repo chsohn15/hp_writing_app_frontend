@@ -1,12 +1,15 @@
 import React from "react";
 import Character from "./Character.js";
+import {Col, Row, Container} from 'react-bootstrap';
 
 const CharacterPicker = (props) => {
   if (props.houseCharacters) {
     return (
-      <div>
+      <Container>
+        <Row>
+          
         <h2>Choose an Alter Ego from {props.house}!</h2>
-        <div>
+        <Col>
           {props.houseCharacters.map((character) => (
             <Character
               currentUser={props.currentUser}
@@ -17,8 +20,9 @@ const CharacterPicker = (props) => {
             />
           ))}
           Character Picker Container
-        </div>
-      </div>
+        </Col>
+        </Row>
+      </Container>
     );
   } else {
     return null;
