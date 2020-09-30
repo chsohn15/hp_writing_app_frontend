@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 
 @font-face {
   font-family: 'MyFont';
-  src: local('MyFont'), url(./fonts/HARRYP__.TTF) format('truetype');
+  src: local('MyFont'), url("./fonts/HARRYP__.TTF") format('truetype');
 }
 
 body {
@@ -104,6 +106,11 @@ body, html {
   max-width: 600px;
   justify-content: center;
   text-align: center
+}
+
+/* Teacher Home */
+#teacher-home-container{
+  margin-top: 30px;
 }
 
 /* https://www.deviantart.com/xxtayce/art/Pottermore-Background-Great-Hall-Floating-Candles-417722401 */

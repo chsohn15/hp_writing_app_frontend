@@ -10,8 +10,8 @@ const UserInfoCard = (props) => {
 
         <Card.Img src={character.image} alt="character"/>
         <Card.Body>
-        <Card.Title>{first_name + " " + last_name}</Card.Title>
-        <Card.Text>
+        <Card.Title style={{fontSize: "30px"}}>{first_name + " " + last_name}</Card.Title>
+        <Card.Text style={{fontSize: "15px"}}>
         <div>Username: {username}</div>
         <div>House: {house}</div>
         <div>Alter Ego: {character.name}</div>

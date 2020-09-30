@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SpellCheckButton from "./SpellCheckButton.js"
+import { Progress } from 'semantic-ui-react'
+
 
 class Assignment extends React.Component {
   state = {
     studentParagraph: "",
     currentIndex: 1,
     display: "none",
+    progress: 0
   };
 
   compile = (event) => {
@@ -57,12 +60,14 @@ class Assignment extends React.Component {
   showNextQuestion = () => {
     this.setState({
       currentIndex: this.state.currentIndex + 1,
+      progress: this.state.progress+25
     });
   };
 
   displayParagraph = () => {
     this.setState({
       display: "block",
+      progress: 100
     });
   };
 
@@ -71,6 +76,7 @@ class Assignment extends React.Component {
     return (
       <div>
         <div>{assignment.name}</div>
+        <Progress percent={this.state.progress} active success></Progress>
         <div>{assignment.prompt}</div>
 
         <form onSubmit={(e) => this.compile(e)}>

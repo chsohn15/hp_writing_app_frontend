@@ -67,10 +67,9 @@ const TeacherHome = (props) => {
   }
 
   return (
-    <Container>
+    <Container id="teacher-home-container">
       <Row>
       <Col sm={3}>
-      <div>{props.currentUser.first_name}'s Home Page</div>
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
       </Col>
       <Col sm={6}>
@@ -87,15 +86,13 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <Toast style={{"maxWidth": "500px"}}>
-                <Toast.Header>
-
-                  
+              return <Toast style={{"maxWidth": "700px"}}>
+                <Toast.Body style={{"font-size": "15px"}}>
                   <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   
-                </Toast.Header>
-                  <Toast.Body>{ann.content}</Toast.Body>
-                <button onClick={() => deleteAnn(ann.id)}>Delete</button>
+                <i class="fa fa-close float-right" onClick={() => deleteAnn(ann.id)} style={{cursor:"pointer"}}/>
+                </Toast.Body>
+                  <Toast.Body style={{"font-size": "15px"}}>{ann.content}</Toast.Body>
                 </Toast>;
             })
           }
