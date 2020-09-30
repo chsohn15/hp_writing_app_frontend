@@ -167,5 +167,13 @@ body, html {
   padding-top: 200px;
 }
 
+.assignment-content{
+  display: block;
+  margin: auto;
+  max-width: 700px;
+  justify-content: center;
+  text-align: center
+}
+
 
 

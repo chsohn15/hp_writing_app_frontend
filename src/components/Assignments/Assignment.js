@@ -76,23 +76,23 @@ class Assignment extends React.Component {
     return (
       <div className="assignment-div">
         <Container>
-        <h1 style={{"font-family":"'Parisienne', cursive", "font-size":"55px"}}>{assignment.name}</h1>
+        <h1 className="assignment-content" style={{"font-family":"'Parisienne', cursive", "font-size":"55px"}}>{assignment.name}</h1>
         <Progress percent={this.state.progress} active success></Progress>
         <h2 style={{"font-family":"'Parisienne', cursive","font-size":"45px"}}>{assignment.prompt}</h2>
 
-        <form onSubmit={(e) => this.compile(e)}>
+        <Form onSubmit={(e) => this.compile(e)}>
           {assignment.assignment_questions
             .slice(0, this.state.currentIndex)
             .map((question, index) => (
-              <div id={index}>
+              <div className="assignment-content" id={index}>
                 <label style={{"font-family": "'Cardo', serif", "font-size":"20px"}}>{question.question}</label>
                 <br />
-                <textarea type="text" style={{ height: 50, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }} />
+                <textarea type="text" placeholder="Begin writing here..." style={{ padding: "10px", border: "none", background: "transparent", height: 50, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }} />
                 <br />
               </div>
             ))}
           {this.state.currentIndex < assignment.assignment_questions.length ? (
-            <button onClick={() => this.showNextQuestion()}>Next</button>
+            <button className="assignment-content" onClick={() => this.showNextQuestion()}>Next</button>
           ) : (
             <div>
             <input
@@ -102,8 +102,8 @@ class Assignment extends React.Component {
             />
             </div>
           )}
-        </form>
-        <form
+        </Form>
+        <Form
           style={{ display: `${this.state.display}` }}
           onSubmit={(e) => this.submitParagraph(e, e.target[0].value)}
         >
@@ -124,7 +124,7 @@ class Assignment extends React.Component {
               Submit Your Final Paragraph!
             </NavLink>
           </button>
-        </form>
+        </Form>
         </Container>
       </div>
     );
