@@ -33,10 +33,10 @@ const TStudentInfo = (props) => {
   return (
     <div className="student-info-div" >
     <Container className="student-info-page">
-      <h3 style={{color:"white"}}>
       <Avatar className={classes.large} style={{display: "block",margin: "auto"}} src={student.character.image}/>
-        Student Name: {student.first_name} {student.last_name}
-      </h3>
+      <h2 style={{color:"white"}}>
+        Student: {student.first_name} {student.last_name}
+      </h2>
 
         <h3 style={{color:"white"}}>Assignments To Be Graded:</h3>
         {ungraded_assignments.length>0? ungraded_assignments.map((sa) => (

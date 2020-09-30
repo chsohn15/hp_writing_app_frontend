@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import SpellCheckButton from "./SpellCheckButton.js"
 import { Progress } from 'semantic-ui-react'
-
+import {Form, Container} from 'react-bootstrap';
 
 class Assignment extends React.Component {
   state = {
@@ -74,7 +74,8 @@ class Assignment extends React.Component {
   render() {
     const assignment = this.props.location.assignmentProps;
     return (
-      <div>
+      <div className="assignment-div">
+        <Container>
         <div>{assignment.name}</div>
         <Progress percent={this.state.progress} active success></Progress>
         <div>{assignment.prompt}</div>
@@ -124,6 +125,7 @@ class Assignment extends React.Component {
             </NavLink>
           </button>
         </form>
+        </Container>
       </div>
     );
   }
