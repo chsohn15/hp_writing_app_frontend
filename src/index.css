@@ -108,11 +108,46 @@ body, html {
   text-align: center
 }
 
-/* Teacher Home */
-#teacher-home-container{
-  margin-top: 30px;
+
+/* User Home  */
+#user-home-container{
+  background-color: #79758f;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7e740078-f753-4701-a779-c7124d72087f/d6wp92t-7ff97c7e-628e-4697-a71c-d313169f12d3.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvN2U3NDAwNzgtZjc1My00NzAxLWE3NzktYzcxMjRkNzIwODdmXC9kNndwOTJ0LTdmZjk3YzdlLTYyOGUtNDY5Ny1hNzFjLWQzMTMxNjlmMTJkMy5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Gyn48h39Om03UQZlK-6qdCTi0Sd0yOoDG42QLc4Re2U");
+  height: 100vh;
 }
 
+.user-home-text{
+  color: white;
+}
+
+/* Teacher Home */
+#teacher-home-container{
+
+  background-image: url("https://i.pinimg.com/originals/f5/ff/a1/f5ffa13a78d00ef583a25af71f010307.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 30px;
+}
+
+.student-info-page{
+  justify-content: center;
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.student-info-div{
+  background-image: url("https://img.buzzfeed.com/buzzfeed-static/static/2018-07/23/10/enhanced/buzzfeed-prod-web-03/enhanced-21484-1532355642-6.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* https://i.skyrock.net/5243/73575243/pics/2894218385_1.jpg */
 /* https://www.deviantart.com/xxtayce/art/Pottermore-Background-Great-Hall-Floating-Candles-417722401 */
 
 

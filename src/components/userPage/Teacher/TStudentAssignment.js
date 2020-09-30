@@ -1,4 +1,7 @@
 import React from "react";
+import { Card} from 'react-bootstrap';
+
+
 
 class TStudentAssignment extends React.Component {
   state = {
@@ -16,10 +19,12 @@ class TStudentAssignment extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>Student's Submission: </div>
+      <Card style={{width: '30rem', display: "block", margin: "auto", "margin-top":"10px"}}>
+        <Card.Body>
+        <Card.Title>Assignment Title: {this.props.assignment.assignment.name}</Card.Title>
+        <Card.Title>Student's Submission: </Card.Title>
         <br />
-        <div> {this.props.assignment.text}</div>
+        <Card.Text> {this.props.assignment.text}</Card.Text>
         <br />
         <div>Grade this Assignment (out of 10 Points)</div>
         <select name="score" onChange={(e) => this.handleChange(e)}>
@@ -38,7 +43,8 @@ class TStudentAssignment extends React.Component {
         ></textarea>{" "}
         <br />
         <button onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>Submit Grade</button>
-      </div>
+        </Card.Body>
+      </Card>
     );
   }
 }

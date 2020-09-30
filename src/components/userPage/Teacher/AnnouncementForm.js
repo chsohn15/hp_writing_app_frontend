@@ -3,6 +3,7 @@ import { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Card} from 'react-bootstrap';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +21,10 @@ const AnnouncementForm = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
-      <h2>Make an Announcement to Your Students!</h2>
+<div>
+      <h2 style={{color:"white"}}>Make an Announcement to Your Students!</h2>
+      <Card style={{opacity:"0.95"}}>
+        <Card.Body>
       <form onSubmit={(e) => props.submitForm(e)}>
         <TextField  
           id="outlined-full-width"
@@ -38,6 +41,8 @@ const AnnouncementForm = (props) => {
           Submit
         </Button>
       </form>
+      </Card.Body>
+    </Card>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const UserInfoCard = (props) => {
 
     const character = {...props.currentUser.character}
 
-    return ( <Card>
+    return ( <Card style={{opacity:"0.95"}}>
 
         <Card.Img src={character.image} alt="character"/>
         <Card.Body>

@@ -17,12 +17,13 @@ const UserPageContainer = (props) => {
       }
 
       return (
-        <Container>
+        <div id="user-home-container">
+        <Container >
           <Row>
           <Col sm={3}>
           <div>{props.currentUser.first_name}'s Home Page</div>
           {teacher ? (
-            <div>
+            <div className="user-home-text">
               My Teacher: {teacher.first_name + " " + teacher.last_name}
             </div>
           ) : (
@@ -48,6 +49,7 @@ const UserPageContainer = (props) => {
           }
           </Col>
           <Col sm={3}>
+          
           <ActivityContainer
             currentUser={props.currentUser}
             assignments={props.assignments}
@@ -55,6 +57,7 @@ const UserPageContainer = (props) => {
           </Col>
           </Row>
         </Container>
+        </div>
       );
     case props.currentUser && !props.currentUser.is_student:
       return (

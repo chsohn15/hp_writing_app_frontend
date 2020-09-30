@@ -10,11 +10,11 @@ const StudentAnnouncements = (props) => {
     
     return (
       <div>
-        <h2>Professor {props.currentUser.teacher.last_name}'s Announcements:</h2>
+        <h2 className="user-home-text">Professor {props.currentUser.teacher.last_name}'s Announcements:</h2>
 
 
     {props.currentUser.teacher.announcements.map(ann=>{
-    return (<div>
+    return (<div >
         <Toast style={{"maxWidth": "500px"}}>
         <Toast.Header>{formatDate(ann.created_at)}</Toast.Header>
         <Toast.Body>{ann.content}</Toast.Body>

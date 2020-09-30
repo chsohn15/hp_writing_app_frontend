@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import TStudentInfo from "./TStudentInfo";
 import AnnouncementForm from "./AnnouncementForm.js";
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Toast} from 'react-bootstrap';
+import { Container, Row, Col, Toast, Card} from 'react-bootstrap';
 import { List, Image } from 'semantic-ui-react'
 
 
@@ -67,7 +67,8 @@ const TeacherHome = (props) => {
   }
 
   return (
-    <Container id="teacher-home-container">
+    <div id="teacher-home-container">
+    <Container >
       <Row>
       <Col sm={3}>
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
@@ -82,11 +83,11 @@ const TeacherHome = (props) => {
       <br />
       {props.currentUser.announcements ? (
         <div>
-          <h2>My Announcements</h2>
+          <h2 style={{color:"white"}}>My Announcements</h2>
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <Toast style={{"maxWidth": "700px"}}>
+              return <Toast style={{"maxWidth": "700px", opacity: "1.0"}}>
                 <Toast.Body style={{"font-size": "15px"}}>
                   <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   
@@ -100,8 +101,9 @@ const TeacherHome = (props) => {
       ) : null}
       </Col>
       <Col sm={3}>
-      <h2>My Students</h2>
-      <List  animated selection verticalAlign='middle' >
+      <h2 style={{color:"white"}}>My Students</h2>
+      <Card style={{opacity:"0.95"}}>
+      <List animated selection verticalAlign='middle' >
         {props.currentUser.students
           ? props.currentUser.students.map((student) => (
             <List.Item>
@@ -124,9 +126,11 @@ const TeacherHome = (props) => {
             ))
           : null}
       </List>
+      </Card>
       </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 
