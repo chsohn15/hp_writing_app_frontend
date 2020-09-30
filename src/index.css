@@ -52,7 +52,7 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'MyFont';
-  
+  width: '100rem'
 }
 #card{
   display: block;
@@ -70,7 +70,7 @@ body, html {
 }
 
 #answer-image{
-  height: 130px;
+  height: 200px;
 }
 
 /* HouseResult */

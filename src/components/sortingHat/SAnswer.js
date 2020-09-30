@@ -7,7 +7,7 @@ function SAnswer(props){
             <img id = "answer-image" src={props.answer.image} alt="image"/>
         :
         null}
-        <div data-id={props.answer.house}>
+        <div style={{cursor: "pointer"}} data-id={props.answer.house}>
             {props.answer.text}
         </div>
         <br/>
