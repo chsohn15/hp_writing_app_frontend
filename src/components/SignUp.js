@@ -67,7 +67,6 @@ class SignUp extends React.Component {
           <h1>Sign Up for an Account!</h1>
           <form onSubmit={(e) => {
             this.signUp(e)
-            // this.directToSortingHat()
           }
             }>
             <label>First Name</label>

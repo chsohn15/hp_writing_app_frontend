@@ -63,9 +63,18 @@ body, html {
 }
 
 #house-logo{
-  max-width: 200px;
-  height: 200px;
+  max-width: 300px;
+  display: block;
+  margin: auto;
+  width: 100%;
   
+}
+
+.house-text{
+  max-width: 300px;
+  display: block;
+  margin: auto;
+  width: 100%;
 }
 
 /* https://www.deviantart.com/xxtayce/art/Pottermore-Background-Great-Hall-Floating-Candles-417722401 */
