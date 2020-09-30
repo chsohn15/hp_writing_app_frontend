@@ -6,11 +6,15 @@ const CharacterPicker = (props) => {
   if (props.houseCharacters) {
     return (
       <Container>
-        <Row>
-          
-        <h2>Choose an Alter Ego from {props.house}!</h2>
-        <Col>
+        <Row style={{"padding-top": "50px", "padding-bottom": "80px"}}>
+        <h1 id="char-picker-title">Choose an Alter Ego from {props.house}!</h1>
+          </Row>
+          <Row>
+            <br />
+          </Row>
+          <Row>
           {props.houseCharacters.map((character) => (
+          <Col>
             <Character
               currentUser={props.currentUser}
               routerProps={props.routerProps}
@@ -18,9 +22,8 @@ const CharacterPicker = (props) => {
               key={character.id}
               setAlterEgo={props.setAlterEgo}
             />
-          ))}
-          Character Picker Container
         </Col>
+          ))}
         </Row>
       </Container>
     );

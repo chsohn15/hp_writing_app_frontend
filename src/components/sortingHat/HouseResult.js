@@ -1,5 +1,6 @@
 import React from 'react'
-import Image from 'react-image-resizer';
+import { Button } from 'semantic-ui-react'
+//import Image from 'react-image-resizer';
 
 const HouseResult = (props) => {
     
@@ -11,11 +12,14 @@ const HouseResult = (props) => {
     } 
 
     return (
-        <div>
+        <div className="house-text">
             <img className="house-text" src="https://www.hp-lexicon.org/wp-content/uploads/2016/09/the_sorting_hat_by_sahinduezguen-d47mwt5-200x0-c-default.png"/>
             <h1 className="house-text">You've been sorted into {props.house}!</h1>
             <img id="house-logo" src={logoObj[props.house]}/>
-            <button className="house-text" onClick={()=>props.changeView("Character")}>Select an Alter Ego</button>
+            <br/>
+            <br/>
+
+            <Button inverted color="black" className="house-text" onClick={()=>props.changeView("Character")}>Select an Alter Ego</Button>
         </div>
     )
 }

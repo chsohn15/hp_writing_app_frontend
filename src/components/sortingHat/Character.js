@@ -8,7 +8,7 @@ const Character = (props) => {
   // };
 
   return (
-    <CardDeck>
+    <CardDeck style={{color:"black"}}>
       <Card>
         <Card.Img variant="top" src={props.character.image} alt={props.character.name} />
           <Card.Body>
