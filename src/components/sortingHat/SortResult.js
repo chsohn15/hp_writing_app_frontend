@@ -6,7 +6,7 @@ const SortResult = (props) => {
   let [viewing, changeView] = useState("House")
   
   return (
-    <div>
+    <div className="house-result">
       {viewing === "House" ?
       <HouseResult house={props.house} changeView={changeView}/>
       :

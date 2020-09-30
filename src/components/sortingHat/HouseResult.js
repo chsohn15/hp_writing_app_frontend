@@ -1,13 +1,19 @@
 import React from 'react'
 
-
-
 const HouseResult = (props) => {
-    let logoObj = {} 
+    
+    let logoObj = {
+        "Gryffindor": "https://vignette.wikia.nocookie.net/dumbledoresarmyroleplay/images/6/6b/Gryffindorcrest.png/revision/latest?cb=20130326163626",
+        "Slytherin":"https://i.dlpng.com/static/png/6554833_preview.png",
+        "HufflePuff": "https://www.pinclipart.com/picdir/middle/453-4537332_crest-banner-png-harry-potter-hufflepuff-crest-clipart.png",
+        "Ravenclaw": "https://img.pngio.com/crest-png-for-free-download-on-harry-potter-house-crests-ravenclaw-crest-png-727_886.png"
+    } 
 
     return (
         <div>
+            <img id="house-logo" src="https://www.hp-lexicon.org/wp-content/uploads/2016/09/the_sorting_hat_by_sahinduezguen-d47mwt5-200x0-c-default.png"/>
             <h1>You've been sorted into {props.house}!</h1>
+            <img src={logoObj[props.house]}/>
             <button onClick={()=>props.changeView("Character")}>Select an Alter Ego</button>
         </div>
     )

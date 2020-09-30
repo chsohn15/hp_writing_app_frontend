@@ -7,6 +7,7 @@ import TStudentInfo from "./TStudentInfo";
 import AnnouncementForm from "./AnnouncementForm.js";
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Toast} from 'react-bootstrap';
+import { List, Image } from 'semantic-ui-react'
 
 const TeacherHome = (props) => {
   let [announcements, addAnnouncement] = useState(
@@ -59,14 +60,19 @@ const TeacherHome = (props) => {
 
   }
 
+  const formatDate = (string) => {
+    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(string).toLocaleDateString([],options);
+  }
+
   return (
     <Container>
       <Row>
-      <Col sm={4}>
+      <Col sm={3}>
       <div>{props.currentUser.first_name}'s Home Page</div>
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
       </Col>
-      <Col sm={8}>
+      <Col sm={6}>
       <AnnouncementForm
         addAnnouncement={addAnnouncement}
         announcements={announcements}
@@ -80,11 +86,11 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <Toast>
+              return <Toast style={{"maxWidth": "500px"}}>
                 <Toast.Header>
 
-                  <img onClick={() => deleteAnn(ann.id)} style={{"pointer-events": "all"}} src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
-                  <strong className="mr-auto">{ann.created_at}</strong>
+                  
+                  <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   
                 </Toast.Header>
                   <Toast.Body>{ann.content}</Toast.Body>
@@ -94,25 +100,32 @@ const TeacherHome = (props) => {
           }
         </div>
       ) : null}
-      <div></div>
-      <ul></ul>
+      </Col>
+      <Col sm={3}>
       <h2>My Students</h2>
-      <ul>
+      <List selection verticalAlign='middle'>
         {props.currentUser.students
           ? props.currentUser.students.map((student) => (
-              <li>
+            <List.Item>
+              {student.character?
+               <Image avatar src={student.character.image} />
+               : null}
+               <List.Content>
                 <NavLink
                   to={{
                     pathname: "/student_info",
                     student: student,
                   }}
                 >
+                   <List.Header>
                   {student.first_name + " " + student.last_name}
+                  </List.Header>
                 </NavLink>
-              </li>
+                </List.Content>
+                </List.Item>
             ))
           : null}
-      </ul>
+      </List>
       </Col>
       </Row>
     </Container>
@@ -120,3 +133,20 @@ const TeacherHome = (props) => {
 };
 
 export default TeacherHome;
+
+
+{/* <List>
+    <List.Item>
+      <Image avatar src='/images/avatar/small/rachel.png' />
+      <List.Content>
+        <List.Header as='a'>Rachel</List.Header>
+        <List.Description>
+          Last seen watching{' '}
+          <a>
+            <b>Arrested Development</b>
+          </a>{' '}
+          just now.
+        </List.Description>
+      </List.Content>
+    </List.Item>
+    <List.Item> */}

@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Julius+Sans+One|Oswald");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(./fonts/HARRYP__.TTF) format('truetype');
+}
 
 body {
   margin: 0;
@@ -26,6 +30,7 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'MyFont'
 }
 
 
@@ -38,12 +43,32 @@ body, html {
   color: white;
 }
 
+
 .sorting_question{
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'MyFont';
 }
+
+/* HouseResult */
+.house-result{
+  background-image: url("https://static.tumblr.com/a96c2a38b7ce7f76b1b41b83a91dc637/gjlyoqi/c3Eo0hi7c/tumblr_static_tumblr_static_bbg02y5vu1w0os8c88804gsow_focused_v3.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+#house-logo{
+  max-width: 200px;
+  height: 200px;
+  
+}
+
+/* https://www.deviantart.com/xxtayce/art/Pottermore-Background-Great-Hall-Floating-Candles-417722401 */
 
 
 

@@ -13,9 +13,9 @@ const ActivityContainer = (props) => {
     // const incompleted_activities =props.assignments.filter(assignment=>!props.currentUser.student_assignments.assignments.includes(assignment))
     return (
     <div>
-      <h1>Incomplete Activities</h1>
+      <h1>Activities</h1>
       <div>{incompleted_activities.map(assignment => <ActivityLink assignment={assignment}/>)}</div>
-      <h1>My Completed Activities</h1>
+      <h1>Completed Activities</h1>
       <div>{completed_activities.map(student_assignment => <CompletedActivityLink assignment={student_assignment}/>)}</div>
       <br/>
     </div>
