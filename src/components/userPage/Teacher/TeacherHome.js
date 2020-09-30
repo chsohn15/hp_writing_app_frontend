@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import TStudentInfo from "./TStudentInfo";
 import AnnouncementForm from "./AnnouncementForm.js";
 import { useState, useEffect } from "react";
+import { Container, Row, Col, Toast} from 'react-bootstrap';
 
 const TeacherHome = (props) => {
   let [announcements, addAnnouncement] = useState(
@@ -59,10 +60,13 @@ const TeacherHome = (props) => {
   }
 
   return (
-    <div>
+    <Container>
+      <Row>
+      <Col sm={4}>
       <div>{props.currentUser.first_name}'s Home Page</div>
-      This is a teacher home page
       <UserInfoCard alterEgo={props.alterEgo} currentUser={props.currentUser} />
+      </Col>
+      <Col sm={8}>
       <AnnouncementForm
         addAnnouncement={addAnnouncement}
         announcements={announcements}
@@ -76,10 +80,16 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <div>
-                <div>{ann.content}</div>
+              return <Toast>
+                <Toast.Header>
+
+                  <img onClick={() => deleteAnn(ann.id)} style={{"pointer-events": "all"}} src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                  <strong className="mr-auto">{ann.created_at}</strong>
+                  
+                </Toast.Header>
+                  <Toast.Body>{ann.content}</Toast.Body>
                 <button onClick={() => deleteAnn(ann.id)}>Delete</button>
-                </div>;
+                </Toast>;
             })
           }
         </div>
@@ -103,7 +113,9 @@ const TeacherHome = (props) => {
             ))
           : null}
       </ul>
-    </div>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 

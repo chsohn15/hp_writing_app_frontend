@@ -1,20 +1,23 @@
 import React from 'react';
-
+import { Card } from 'react-bootstrap';
 
 const UserInfoCard = (props) => {
     const {character_id, first_name, last_name, username, house} = props.currentUser
 
     const character = {...props.currentUser.character}
 
-    return ( <div>
-        <div>User Info Card</div>
-        <img src={character.image} alt="character"/>
-        <div>{first_name + " " + last_name}</div>
+    return ( <Card>
+
+        <Card.Img src={character.image} alt="character"/>
+        <Card.Body>
+        <Card.Title>{first_name + " " + last_name}</Card.Title>
+        <Card.Text>
         <div>Username: {username}</div>
         <div>House: {house}</div>
         <div>Alter Ego: {character.name}</div>
-        
-    </div> );
+        </Card.Text>
+        </Card.Body>
+    </Card> );
 }
  
 export default UserInfoCard;
