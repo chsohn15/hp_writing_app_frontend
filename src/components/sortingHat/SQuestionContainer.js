@@ -1,5 +1,6 @@
 import React from "react";
 import SAnswer from "./SAnswer";
+import { Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 
 
 export default class SQuestionContainer extends React.Component {
@@ -92,17 +93,24 @@ export default class SQuestionContainer extends React.Component {
     }
     return question ? (
       <div className="sorting_question" style={{backgroundImage: `url(${this.imageArray[this.state.currentQuestion.questionNumber - 1]})`}}>
-        <h1>Sorting Hat</h1>
-        <h3>
+        <Card id="card" style={{ width: '30rem' }}>
+        <Card.Body>
+        <Card.Title>
           Question {question.number}: {question.question}
-        </h3>
+        </Card.Title>
+        </Card.Body>
+        <ListGroup  vertical className="list-group-flush" variant="flush">
         {question.sorting_hat_answers.map((answer) => (
-          <SAnswer
-            answer={answer}
-            key={answer.id}
-            handleClick={this.handleClick}
-          />
+          <ListGroupItem>
+            <SAnswer
+              answer={answer}
+              key={answer.id}
+              handleClick={this.handleClick}
+            />
+            </ListGroupItem>
         ))}
+      </ListGroup>
+        </Card>
       </div>
     ) : null;
   }

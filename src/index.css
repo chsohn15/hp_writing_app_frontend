@@ -33,7 +33,7 @@ body, html {
   font-family: 'MyFont'
 }
 
-
+/* Sorting Hat */
 .sstart{
   background-image: url("https://static.tumblr.com/a96c2a38b7ce7f76b1b41b83a91dc637/gjlyoqi/c3Eo0hi7c/tumblr_static_tumblr_static_bbg02y5vu1w0os8c88804gsow_focused_v3.jpg");
   height: 100vh;
@@ -50,6 +50,25 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'MyFont';
+  
+}
+#card{
+  display: block;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width:100%;
+  max-height:100%;
+  position:absolute;
+  top: 400px;
+  left:50%;
+  transform:translate(-50%,-50%)
+}
+
+#answer-image{
+  height: 130px;
 }
 
 /* HouseResult */

@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Toast} from 'react-bootstrap';
 import { List, Image } from 'semantic-ui-react'
 
+
 const TeacherHome = (props) => {
   let [announcements, addAnnouncement] = useState(
     props.currentUser.announcements ? props.currentUser.announcements : []
@@ -103,12 +104,12 @@ const TeacherHome = (props) => {
       </Col>
       <Col sm={3}>
       <h2>My Students</h2>
-      <List selection verticalAlign='middle'>
+      <List  animated selection verticalAlign='middle' >
         {props.currentUser.students
           ? props.currentUser.students.map((student) => (
             <List.Item>
               {student.character?
-               <Image avatar src={student.character.image} />
+               <Image avatar size="mini" src={student.character.image} />
                : null}
                <List.Content>
                 <NavLink
