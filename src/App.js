@@ -167,7 +167,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" style={{height: "7vh", "background-color": "#170729",
+      <div className="App" style={{height: "8vh", "background-color": "#170729",
         "background-image": 'url("https://www.transparenttextures.com/patterns/dark-wood.png")'}}>
         {/* <header className="App-header">
           <h1>Hogwarts</h1>
