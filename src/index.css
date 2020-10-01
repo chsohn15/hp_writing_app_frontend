@@ -229,6 +229,14 @@ body, html {
   text-align: center
 }
 
+.completed-assignment-div{
+  background-color: #291514;
+  background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/5/54/B2C12M1_Sorting_Hat_in_Dumbledore%27s_office.png/revision/latest?cb=20180423223750");
+  height: 180vh;
+  background-size: cover;
+  padding-top: 200px;
+}
+
 
 
 .example {

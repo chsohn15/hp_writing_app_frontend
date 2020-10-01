@@ -1,11 +1,15 @@
 import React from "react";
+import { Card} from 'react-bootstrap';
 
 const CompletedAssignment = (props) => {
-    //console.log(props)
+
     let s_a = props.location.assignment
- return(<div>
+
+    return(<div className="completed-assignment-div">
+        <Card style={{width: '30rem', display: "block", margin: "auto", "margin-top":"10px"}}>
+        <Card.Body>
      <h2>{s_a.assignment.name}</h2>
-     <div>My submission: {s_a.text}</div><br/>
+     <h4>My submission: {s_a.text}</h4><br/>
      {s_a.score
      ?
      <div>
@@ -17,6 +21,8 @@ const CompletedAssignment = (props) => {
      <div>
          This assignment has not yet been scored!
     </div>}
+    </Card.Body>
+    </Card>
     </div>)
 }
 export default CompletedAssignment
