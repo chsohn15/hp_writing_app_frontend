@@ -37,6 +37,25 @@ body, html {
   font-family: 'MyFont'
 }
 
+.welcome-text{
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: left;
+  text-align: center;
+  padding-top: 20px;
+
+}
+#welcome-header{
+  display: block;
+
+  margin-left: 610px;
+  width: 100%;
+  max-width: 1400px;
+  padding-top: 90px;
+}
+
 /* Sorting Hat */
 .sstart{
   background-image: url("https://static.tumblr.com/a96c2a38b7ce7f76b1b41b83a91dc637/gjlyoqi/c3Eo0hi7c/tumblr_static_tumblr_static_bbg02y5vu1w0os8c88804gsow_focused_v3.jpg");
