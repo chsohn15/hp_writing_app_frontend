@@ -14,17 +14,15 @@ const Welcome = (props) => {
 
     return(
         <div className="welcome">
-        <h1>Welcome to the</h1>
+        <h1 style={{"color": "#F8F8F8"}}>Welcome to the</h1>
         <img
           style={{
             width: "30%",
-            height: "10%",
-            color: "white",
             justifyContent: "center",
           }}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/2180px-Harry_Potter_wordmark.svg.png"
+          src="https://www.logolynx.com/images/logolynx/47/4718783b27b71677a205ebed08d2cf4c.png"
         />
-        <h1>Writing App!</h1>
+        <h1 style={{"color": "#F8F8F8"}}>Writing App!</h1>
         <button onClick={login}>Login</button>
         <button onClick={signup}>Sign Up</button>
         </div>
