@@ -2,7 +2,8 @@ import React from 'react';
 import {ListGroupItem} from 'react-bootstrap';
 
 function SAnswer(props){
-    return(<div onClick={(e)=>props.handleClick(e.target.dataset.id)}>
+    return(<div onClick={(e)=>{
+        props.handleClick(e.target.dataset.id)}} >
             {props.answer.image ? 
             <img id = "answer-image" src={props.answer.image} alt="image"/>
         :

@@ -42,7 +42,7 @@ const TStudentInfo = (props) => {
         {ungraded_assignments.length>0? ungraded_assignments.map((sa) => (
             <div>{<TStudentAssignment gradePaper={props.gradePaper} assignment={sa} />}</div>
         )
-        ): <div>None</div>
+        ): <div style={{color:"white"}}>None</div>
       }
 
 
@@ -50,7 +50,7 @@ const TStudentInfo = (props) => {
       <h3 style={{color:"white"}}>Graded Assignments: </h3><br />
        {graded_assignments.length>0? graded_assignments.map(sa=> (
        <GradedAssignment assignment={sa}/>
-       )):<div>None</div>
+       )):<div style={{color:"white"}}>None</div>
       }
     </Container>
     </div>

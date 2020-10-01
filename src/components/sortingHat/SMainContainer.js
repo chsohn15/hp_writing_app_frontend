@@ -67,7 +67,7 @@ class SMainContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="sorting-hat-main-container">
         
         {this.state.onQuiz ? (
           <SQuestionContainer finishQuiz={this.finishQuiz} />

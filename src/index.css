@@ -54,8 +54,27 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'MyFont';
-  width: '100rem'
+  width: '100rem';
+  animation: fadeInAnimation ease 1.5s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
 }
+
+.welcome, .login, .signup, .assignment-div, #user-home-container, .student-info-div{
+  animation: fadeInAnimation ease 3.5s; 
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: .3; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+} 
+
 #card{
   display: block;
   margin: auto;
@@ -147,7 +166,7 @@ body, html {
 
 .student-info-div{
   background-image: url("https://img.buzzfeed.com/buzzfeed-static/static/2018-07/23/10/enhanced/buzzfeed-prod-web-03/enhanced-21484-1532355642-6.jpg");
-  height: 100vh;
+  height: 150vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -173,6 +192,12 @@ body, html {
   max-width: 700px;
   justify-content: center;
   text-align: center
+}
+
+
+
+.example {
+  opacity: 0.01;
 }
 
 

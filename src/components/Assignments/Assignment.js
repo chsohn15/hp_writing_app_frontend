@@ -77,7 +77,7 @@ class Assignment extends React.Component {
       <div className="assignment-div">
         <Container>
         <h1 className="assignment-content" style={{"font-family":"'Parisienne', cursive", "font-size":"55px"}}>{assignment.name}</h1>
-        <Progress percent={this.state.progress} active success></Progress>
+        <Progress percent={this.state.progress} active color="yellow"></Progress>
         <h2 style={{"font-family":"'Parisienne', cursive","font-size":"45px"}}>{assignment.prompt}</h2>
 
         <Form onSubmit={(e) => this.compile(e)}>
@@ -87,7 +87,7 @@ class Assignment extends React.Component {
               <div className="assignment-content" id={index}>
                 <label style={{"font-family": "'Cardo', serif", "font-size":"20px"}}>{question.question}</label>
                 <br />
-                <textarea type="text" placeholder="Begin writing here..." style={{ padding: "10px", border: "none", background: "transparent", height: 50, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }} />
+                <textarea type="text" placeholder="Begin writing here..." style={{ padding: "10px", border: "none", background: "transparent", height: 70, width: 597, "font-family": "'Cardo', serif", "font-size":"15px" }} />
                 <br />
               </div>
             ))}

@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Form} from 'react-bootstrap';
+import { Card, Form, Alert} from 'react-bootstrap';
+import { NavLink } from "react-router-dom";
 
 
 class TStudentAssignment extends React.Component {
@@ -45,7 +46,14 @@ class TStudentAssignment extends React.Component {
             <br />
         </Form.Group>
       </Form>
-        <button onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>Submit Grade</button>
+      <button onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>
+      <NavLink
+              to={{ pathname: "/user_home" }}
+              type="submit"
+            >
+              Submit Grade
+            </NavLink>
+            </button>
         </Card.Body>
       </Card>
     );

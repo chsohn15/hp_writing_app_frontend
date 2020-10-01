@@ -2,7 +2,6 @@ import React from "react";
 import SAnswer from "./SAnswer";
 import { Card, ListGroup, ListGroupItem} from 'react-bootstrap';
 
-
 export default class SQuestionContainer extends React.Component {
   state = {
     questions: [],
@@ -12,7 +11,8 @@ export default class SQuestionContainer extends React.Component {
     answeredQuestions: {
       values: [],
     },
-    horizontal: false
+    horizontal: false,
+    opacity: 0
   };
 
   componentDidMount() {
@@ -82,6 +82,11 @@ export default class SQuestionContainer extends React.Component {
 
   };
 
+  // handleOpacity = () => {
+  //   this.setState({opacity: 0})
+  //   setTimeout(() => this.setState({opacity: "1"}), 4000)
+  // }
+
   imageArray = [
     "https://static1.srcdn.com/wordpress/wp-content/uploads/2017/08/Harry-Potter-Goblet-of-Fire-maze.jpg?q=50&fit=crop&w=740&h=333",
     "https://images.ctfassets.net/usf1vwtuqyxm/3QJzATnZwIQOm4cCC6ksoe/7c8fbafab0b6f399d1953e5e992405d5/DiagonAlley_PM_B1C5M1_DiagonAlley_V2_Moment.jpg",
@@ -109,8 +114,8 @@ export default class SQuestionContainer extends React.Component {
       console.log(this.state.answeredQuestions);
     }
     return question ? (
-      <div className="sorting_question" style={{backgroundImage: `url(${this.imageArray[this.state.currentQuestion.questionNumber - 1]})`}}>
-        <Card id="card" style={{ width: `${this.widthArray[this.state.currentQuestion.questionNumber - 1]}` , opacity: "0.9"}}>
+      <div className="sorting_question" style={{ backgroundImage: `url(${this.imageArray[this.state.currentQuestion.questionNumber - 1]})`}}>
+        <Card  id="card" style={{ width: `${this.widthArray[this.state.currentQuestion.questionNumber - 1]}` , opacity: "0.9"}}>
         <Card.Body>
         <Card.Title>
           Question {question.number}: {question.question}
@@ -123,10 +128,11 @@ export default class SQuestionContainer extends React.Component {
               answer={answer}
               key={answer.id}
               handleClick={this.handleClick}
+              
             />
             </ListGroupItem>
         ))}
-      </ListGroup>
+        </ListGroup>
         </Card>
       </div>
     ) : null;
