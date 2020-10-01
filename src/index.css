@@ -39,6 +39,16 @@ body, html {
   font-family: 'MyFont'
 }
 
+.login-form{
+  display: block;
+
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+  text-align: center;
+  margin-left: "500px"
+}
+
 .welcome-text{
   display: block;
   margin: auto;

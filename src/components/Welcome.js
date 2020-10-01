@@ -14,7 +14,6 @@ const Welcome = (props) => {
 
     return(
         <div className="welcome">
-        {/* <h1 id="welcome-header"style={{"color": "#E8E8E8"}}>The Official</h1> */}
           <div className="welcome-text">
             <img
               style={{

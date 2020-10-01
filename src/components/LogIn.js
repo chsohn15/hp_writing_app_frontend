@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Row, Col, Card } from 'react-bootstrap';
 
 class LogIn extends React.Component {
   state = {
@@ -57,7 +57,7 @@ class LogIn extends React.Component {
           <div className="App">
             <div className="login">
               <header className="App-header">
-                <h1>The</h1>
+                <div className="welcome-text">
                 <img
                   style={{
                     width: "30%",
@@ -67,31 +67,37 @@ class LogIn extends React.Component {
                   }}
                   src="https://www.logolynx.com/images/logolynx/47/4718783b27b71677a205ebed08d2cf4c.png"
                 />
-                <h1>Writing App</h1>
-                <h1>Log into your Account!</h1>
-                <form
+                <h1 style={{"color":"white"}}>Log into The Writing App!</h1>
+                <Form className="login-form"
                   onSubmit={(e) => {
                     this.logIn(e);
                     //this.goToUserPage();
                   }}
                 >
-                  <label>Username</label>
-                  <input
-                    onChange={(e) => this.handleChange(e)}
-                    name="username"
-                    type="text"
-                  />
-                  <label>Password</label>
-                  <input
+                  <Form.Group as={Row}>
+                    <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "590px", "margin-top":"11px"}}>Username</Form.Label>
+                    <Form.Control
+                      onChange={(e) => this.handleChange(e)}
+                      name="username"
+                      type="text"
+                      style={{"font-size":"17px", "width":"150px", "margin-left":"15px"}}
+                    />
+                  </Form.Group>
+                  <Form.Group as={Row}>
+                  <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "594px", "margin-top":"11px"}}>Password</Form.Label>
+                  <Form.Control
                     onChange={(e) => this.handleChange(e)}
                     name="password"
                     type="password"
+                    style={{"font-size":"17px", "width":"150px", "margin-left":"15px"}}
                   />
-                  <input type="submit" />
+                  </Form.Group>
+                  <Button style={{"margin-right":"10px"}} variant="dark" type="submit" value="Log In">Log In</Button>
                   {this.state.errors.length > 0
-                    ? this.state.errors.map((error) => <div>{error}</div>)
+                    ? this.state.errors.map((error) => <div style={{"font-size":"19px", "color":"white"}}>{error}</div>)
                     : null}
-                </form>
+                </Form>
+                </div>
               </header>
             </div>
           </div>
