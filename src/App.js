@@ -10,6 +10,7 @@ import TeacherHome from "./components/userPage/Teacher/TeacherHome";
 import Assignment from "./components/Assignments/Assignment.js";
 import CompletedAssignment from "./components/Assignments/CompletedAssignment.js";
 import TStudentInfo from "./components/userPage/Teacher/TStudentInfo";
+import { Row } from 'react-bootstrap';
 
 class App extends React.Component {
   state = {
@@ -163,17 +164,24 @@ class App extends React.Component {
 
   };
 
+
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{height: "7vh", "background-color": "#170729",
+        "background-image": 'url("https://www.transparenttextures.com/patterns/dark-wood.png")'}}>
         {/* <header className="App-header">
           <h1>Hogwarts</h1>
         </header> */}
         <Router>
           {this.state.currentUser? 
-              <NavLink onClick={this.logOut} to="/login">
+          <div style={{padding: "10px"}}>
+            <Row style={{"justify-content": "right"}}>
+              <div style={{"padding-top": "13px", "padding-left": "20px", color: "white", textAlign: "center", "font-size":"18px"}}>The Harry Potter Writing App</div>
+              <NavLink  style={{padding: "12px", "justify-content": "right"}} onClick={this.logOut} to="/login">
                     Log Out
               </NavLink>
+              </Row>
+              </div>
                   :
           null}
 
