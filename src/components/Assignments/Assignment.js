@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SpellCheckButton from "./SpellCheckButton.js"
 import { Progress } from 'semantic-ui-react'
-import {Form, Container} from 'react-bootstrap';
+import {Form, Container, Button} from 'react-bootstrap';
 
 class Assignment extends React.Component {
   state = {
@@ -92,14 +91,14 @@ class Assignment extends React.Component {
               </div>
             ))}
           {this.state.currentIndex < assignment.assignment_questions.length ? (
-            <button className="assignment-content" onClick={() => this.showNextQuestion()}>Next</button>
+            <Button style={{"font-family": "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center" onClick={() => this.showNextQuestion()}>Next</Button>
           ) : (
             <div>
-            <input
+            <Button style={{"font-family": "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center"
               onClick={() => this.displayParagraph()}
               type="submit"
-              value="Turn Into a Paragraph!"
-            />
+              value="Transform Into a Paragraph!"
+            >Transform into a Paragraph!</Button>
             </div>
           )}
         </Form>
@@ -109,12 +108,12 @@ class Assignment extends React.Component {
         >
           <textarea
             onChange={(e) => this.editParagraph(e.target.value)}
-            style={{ height: 200, width: 500 }}
+            className="assignment-content"
+            style={{ padding: "10px", "padding-top": "25px", border: "none", background: "transparent", height: 200, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }}
             type="text"
             value={this.state.studentParagraph}
           />
           <br />
-          <SpellCheckButton />
           <button type="submit">
             <NavLink
               onClick={this.submitParagraph.bind(this)}
