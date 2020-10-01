@@ -22,21 +22,6 @@ const UserPageContainer = (props) => {
           <Row>
           <Col sm={3}>
           <div>{props.currentUser.first_name}'s Home Page</div>
-          {teacher ? (
-            // <div className="user-home-text">
-            //   My Teacher: {teacher.first_name + " " + teacher.last_name}
-            // </div>
-            null
-          ) : (
-            <div>
-              {" "}
-              <TeacherForm
-                setTeacher={props.setTeacher}
-                teachers={props.teachers}
-              />
-            </div>
-          )}
-
           <UserInfoCard
             alterEgo={props.alterEgo}
             currentUser={props.currentUser}
@@ -48,6 +33,18 @@ const UserPageContainer = (props) => {
           : 
           null
           }
+          {!teacher ? 
+          (
+          <div>
+            <h3 style={{color: "white", "margin-top":"20px"}}>Select a teacher to view annoucements for your class!</h3>
+              <div>
+              <TeacherForm
+                setTeacher={props.setTeacher}
+                teachers={props.teachers}
+               />
+              </div>
+          </div>) 
+          : null}
           </Col>
           <Col sm={3}>
           

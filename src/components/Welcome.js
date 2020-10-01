@@ -1,5 +1,5 @@
 import React from 'react';
-import '../fonts/HARRYP__.TTF'
+import { Button } from 'react-bootstrap';
 
 
 const Welcome = (props) => {
@@ -14,7 +14,7 @@ const Welcome = (props) => {
 
     return(
         <div className="welcome">
-        <h1 id="welcome-header"style={{"color": "#E8E8E8"}}>The Official</h1>
+        {/* <h1 id="welcome-header"style={{"color": "#E8E8E8"}}>The Official</h1> */}
           <div className="welcome-text">
             <img
               style={{
@@ -23,9 +23,9 @@ const Welcome = (props) => {
             }}
             src="https://www.logolynx.com/images/logolynx/47/4718783b27b71677a205ebed08d2cf4c.png"
           />
-          <h1 style={{"color": "#F8F8F8"}}>Writing App!</h1>
-          <button onClick={login}>Login</button>
-          <button onClick={signup}>Sign Up</button>
+          <h1 id="welcome-second-header" style={{"color": "#F8F8F8"}}>The Writing App!</h1>
+          <Button style={{"margin-right":"10px"}} variant="dark" onClick={login}>Login</Button>
+          <Button style={{"margin-left":"10px"}} variant="dark" onClick={signup}>Sign Up</Button>
           </div>
         </div>
     )

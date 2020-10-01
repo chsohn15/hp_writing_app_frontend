@@ -13,7 +13,7 @@ const ActivityContainer = (props) => {
     
     // const incompleted_activities =props.assignments.filter(assignment=>!props.currentUser.student_assignments.assignments.includes(assignment))
     return (
-    <Card style={{"margin-top":"15px"}}>
+    <Card style={{"margin-top":"17px"}}>
       <Card.Body>
       <h2>Activities</h2>
       <Card.Text>{incompleted_activities.map(assignment => <ActivityLink assignment={assignment}/>)}</Card.Text>

@@ -44,17 +44,15 @@ body, html {
   max-width: 1400px;
   justify-content: left;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 75px;
 
 }
-#welcome-header{
-  display: block;
 
-  margin-left: 610px;
-  width: 100%;
-  max-width: 1400px;
-  padding-top: 90px;
+#welcome-second-header{
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
+
 
 /* Sorting Hat */
 .sstart{
@@ -199,8 +197,8 @@ body, html {
 
 .assignment-div{
   background-color: #291514;
-  background-image: url("https://lh3.googleusercontent.com/proxy/-FVta__drChae5nkJZzadk3CD1kyIe_AH6HqiSujjh1wMkdeUl5FKBbnIW9PbC24Yhm1J0iWA_RVg_R00cDFIYP1bZuBlQBDD_Q8orjzYd1qLlcScS8JsmZZ5kFhPImU"), url("https://www.transparenttextures.com/patterns/purty-wood.png");
-  height: 160vh;
+  background-image: url("https://www.freepngimg.com/thumb/scroll/9-2-scroll-download-png.png"), url("https://www.transparenttextures.com/patterns/purty-wood.png");
+  height: 180vh;
   background-size: cover;
   padding-top: 200px;
 }

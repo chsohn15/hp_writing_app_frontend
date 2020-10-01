@@ -77,7 +77,7 @@ class Assignment extends React.Component {
         <Container>
         <h1 className="assignment-content" style={{"font-family":"'Parisienne', cursive", "font-size":"55px"}}>{assignment.name}</h1>
         <Progress percent={this.state.progress} active color="yellow"></Progress>
-        <h2 style={{"font-family":"'Parisienne', cursive","font-size":"45px"}}>{assignment.prompt}</h2>
+        <h2 style={{"font-family":"'Parisienne', cursive","font-size":"40px"}}>{assignment.prompt}</h2>
 
         <Form onSubmit={(e) => this.compile(e)}>
           {assignment.assignment_questions
