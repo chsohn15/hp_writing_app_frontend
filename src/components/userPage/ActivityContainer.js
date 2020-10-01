@@ -5,7 +5,6 @@ import {Card} from 'react-bootstrap';
 
 const ActivityContainer = (props) => {
 
-  //debugger
     //List of student_assignments
     const completed_activities =props.currentUser.student_assignments
     const s_a_ids =props.currentUser.student_assignments.map(sa=>sa.assignment.id)
