@@ -175,7 +175,7 @@ class App extends React.Component {
         <Router>
           {this.state.currentUser? 
           <div style={{padding: "10px"}}>
-            <Row style={{"justify-content": "right"}}>
+            <Row>
               <div style={{"padding-top": "13px", "padding-left": "20px", color: "white", textAlign: "center", "font-size":"18px"}}>The Harry Potter Writing App</div>
               <NavLink  style={{padding: "12px", "justify-content": "right"}} onClick={this.logOut} to="/login">
                     Log Out
