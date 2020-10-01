@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, Button, Row, Card } from 'react-bootstrap';
 
 class SignUp extends React.Component {
     
@@ -63,29 +64,51 @@ class SignUp extends React.Component {
   render(){
   return (
       <div className="signup">
-        <header className="App-header">
-          <h1>Sign Up for an Account!</h1>
-          <form onSubmit={(e) => {
+        <div className="welcome-text">
+          <h1 style={{"color":"white", "margin-bottom":"15px", "padding-top":"180px"}}>Sign Up For the Writing App Today!</h1>
+        </div>
+          {/* <div className="welcome-text">
+                <img
+                  style={{
+                    width: "30%",
+                    height: "10%",
+                    color: "white",
+                    justifyContent: "center",
+                  }}
+                  src="https://www.logolynx.com/images/logolynx/47/4718783b27b71677a205ebed08d2cf4c.png"
+                />
+                <h1 style={{"color":"white", "margin-bottom":"15px"}}>Sign Up For the Writing App Today!</h1>
+          </div> */}
+          <Form onSubmit={(e) => {
             this.signUp(e)
           }
             }>
-            <label>First Name</label>
-            <input onChange={(e) => this.handleChange(e)} name="first_name" type="text"/><br/>
-            <label>Last Name</label>
-            <input onChange={(e) => this.handleChange(e)} name="last_name" type="text"/><br/>
-            <label>Username</label>
-            <input onChange={(e) => this.handleChange(e)} name="username" type="text"/><br/>
-            <label>Password</label>
-            <input onChange={(e) => this.handleChange(e)} name="password" type="password"/><br/>
-            <label>Role</label>
-            <select onChange={(e) => this.handleRole(e)} name="role" type="text"><br/>
-              <option name="isStudent" value={true}>Student</option>
-              <option name="isStudent" value={false}>Teacher</option>
-            </select>
-            <input type="submit"/>
-          </form>
+            <Form.Group as={Row}>
+              <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "590px", "margin-top":"11px"}}>First Name</Form.Label>
+              <Form.Control onChange={(e) => this.handleChange(e)} name="first_name" type="text" style={{"font-size":"17px", "width":"160px", "margin-left":"14px", "margin-top":"11px"}}/><br/>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "590px", "margin-top":"11px"}}>Last Name</Form.Label>
+              <Form.Control onChange={(e) => this.handleChange(e)} name="last_name" type="text" style={{"font-size":"17px", "width":"160px", "margin-left":"15px"}}/><br/>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "595px", "margin-top":"11px"}}>Username</Form.Label>
+              <Form.Control onChange={(e) => this.handleChange(e)} name="username" type="text" style={{"font-size":"17px", "width":"160px", "margin-left":"18px"}}/><br/>
+              </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "600px", "margin-top":"11px"}}>Password</Form.Label>
+              <Form.Control onChange={(e) => this.handleChange(e)} name="password" type="password" style={{"font-size":"17px", "width":"160px", "margin-left":"18px"}}/><br/>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "641px", "margin-top":"11px"}}>Role</Form.Label>
+                <Form.Control as="select" size="sm" onChange={(e) => this.handleRole(e)} name="role" type="text" style={{"font-size":"17px", "width":"160px", "margin-left":"18px"}}><br/>
+                  <option name="isStudent" value={true}>Student</option>
+                  <option name="isStudent" value={false}>Teacher</option>
+                </Form.Control>
+            </Form.Group>
+            <Button style={{"margin-left": "690px", "margin-top":"11px"}} variant="dark" type="submit">Sign Up</Button>
+          </Form>
 
-        </header>
       </div>
     );
   }

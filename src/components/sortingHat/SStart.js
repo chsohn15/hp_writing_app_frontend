@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button} from 'react-bootstrap';
 
 function SStart(props){
 
@@ -7,7 +8,7 @@ function SStart(props){
       }
     return(
     <div className="sstart">
-        <h1>Welcome to Hogwarts, {props.currentUser.first_name}! It's time for the Sorting Hat!</h1>
+        <h1 style={{"padding-top":"370px"}}>Welcome to Hogwarts, {props.currentUser.first_name}! It's time for the Sorting Hat!</h1>
         <button onClick={directToSortingHat}>Discover Your House</button>
     </div>
     )

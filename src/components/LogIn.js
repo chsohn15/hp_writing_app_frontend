@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Row, Col, Card } from 'react-bootstrap';
+import { Form, Button, Row } from 'react-bootstrap';
 
 class LogIn extends React.Component {
   state = {
