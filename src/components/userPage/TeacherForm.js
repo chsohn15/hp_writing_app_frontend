@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Form, Button, Row} from 'react-bootstrap';
 
 class TeacherForm extends React.Component {
   setTeacherId = (id) => {
@@ -14,18 +15,24 @@ class TeacherForm extends React.Component {
       <div>
         <label> Choose a teacher</label>
         <br />
-
-        <select onChange={(e) => this.setTeacherId(e.target.value)}>
+      <Form>
+      <Form.Group as={Row}>
+        <Form.Control style={{width: "400px"}} as="select" onChange={(e) => this.setTeacherId(e.target.value)}>
           <option selected="true" disabled="disabled">
             Select...
           </option>
           {this.props.teachers.map((teacher) => (
             <option value={teacher.id}>{teacher.full_name}</option>
           ))}
-        </select>
-        <button onClick={() => this.props.setTeacher(this.state.id)}>
+        </Form.Control>
+        <Button variant="outline-secondary" style={{
+          display: "inline-block",
+          "margin-left": "15px"
+        }} onClick={() => this.props.setTeacher(this.state.id)}>
           Submit
-        </button>
+        </Button>
+        </Form.Group>
+        </Form>
       </div>
     );
   }
