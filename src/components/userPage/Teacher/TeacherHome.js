@@ -87,7 +87,7 @@ const TeacherHome = (props) => {
           {
             // props.currentUser.announcements
             announcements.map((ann) => {
-              return <div><Toast style={{"maxWidth": "700px", opacity: "1.0"}}>
+              return <div><Toast style={{"maxWidth": "700px", opacity: "1.0", "margin-top":"15px"}}>
                 <Toast.Body style={{"font-size": "15px"}}>
                   <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   

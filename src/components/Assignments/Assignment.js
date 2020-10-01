@@ -109,12 +109,12 @@ class Assignment extends React.Component {
           <textarea
             onChange={(e) => this.editParagraph(e.target.value)}
             className="assignment-content"
-            style={{ padding: "10px", "padding-top": "25px", border: "none", background: "transparent", height: 200, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }}
+            style={{ padding: "10px", "margin-top": "25px", "padding-top": "25px", border: "none", background: "transparent", height: 200, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }}
             type="text"
             value={this.state.studentParagraph}
           />
           <br />
-          <button type="submit">
+          <Button style={{"font-family": "'Cardo', serif", "font-color": "black"}} variant="light" className="assignment-content d-flex justify-content-center" type="submit">
             <NavLink
               onClick={this.submitParagraph.bind(this)}
               to={{ pathname: "/user_home" }}
@@ -122,7 +122,7 @@ class Assignment extends React.Component {
             >
               Submit Your Final Paragraph!
             </NavLink>
-          </button>
+          </Button>
         </Form>
         </Container>
       </div>

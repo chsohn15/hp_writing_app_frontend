@@ -23,9 +23,10 @@ const UserPageContainer = (props) => {
           <Col sm={3}>
           <div>{props.currentUser.first_name}'s Home Page</div>
           {teacher ? (
-            <div className="user-home-text">
-              My Teacher: {teacher.first_name + " " + teacher.last_name}
-            </div>
+            // <div className="user-home-text">
+            //   My Teacher: {teacher.first_name + " " + teacher.last_name}
+            // </div>
+            null
           ) : (
             <div>
               {" "}
