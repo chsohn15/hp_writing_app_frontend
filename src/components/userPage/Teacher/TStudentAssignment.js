@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Form, Alert} from 'react-bootstrap';
+import { Card, Form, Alert, Button} from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 
 
@@ -24,9 +24,9 @@ class TStudentAssignment extends React.Component {
           <Card.Title>Assignment Title: {this.props.assignment.assignment.name}</Card.Title>
           <Card.Title>Student's Submission: </Card.Title>
             <br />
-          <Card.Text> {this.props.assignment.text}</Card.Text>
+          <Card.Text style={{"font-size":"17px"}}> {this.props.assignment.text}</Card.Text>
             <br />
-            <div>Grade this Assignment (out of 10 Points):</div>
+            <div style={{"font-size":"15px"}}>Grade this Assignment (out of 10 Points):</div>
         <Form>
           <Form.Control style={{width: "50px", display: "block", margin: "auto", "margin-top":"10px"}}size="sm" as="select" name="score" onChange={(e) => this.handleChange(e)}>
             <option  value="10">10</option>
@@ -38,7 +38,7 @@ class TStudentAssignment extends React.Component {
           </Form.Control>
           <br />
         <Form.Group>
-          <Form.Label>Feedback:</Form.Label>
+          <Form.Label style={{"font-size":"15px"}}>Feedback:</Form.Label>
             <Form.Control as="textarea" rows="3" 
               name="feedback"
               onChange={(e) => this.handleChange(e)}
@@ -46,14 +46,14 @@ class TStudentAssignment extends React.Component {
             <br />
         </Form.Group>
       </Form>
-      <button onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>
-      <NavLink
+      <Button variant="outline-secondary" onClick={()=>this.props.gradePaper(this.sa_id, this.state.score, this.state.feedback)}>
+      <NavLink style={{"font-color":"black !important"}}
               to={{ pathname: "/user_home" }}
               type="submit"
             >
               Submit Grade
             </NavLink>
-            </button>
+            </Button>
         </Card.Body>
       </Card>
     );
