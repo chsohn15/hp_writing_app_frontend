@@ -48,7 +48,6 @@ class LogIn extends React.Component {
 
   goToUserPage = () => {
     this.props.history.push("/user_home");
-    //window.location.reload()
   };
 
   render() {

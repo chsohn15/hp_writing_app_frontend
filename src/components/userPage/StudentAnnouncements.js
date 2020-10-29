@@ -10,13 +10,13 @@ const StudentAnnouncements = (props) => {
     const announcements = [...props.currentUser.teacher.announcements].reverse()
     
     return (
-      <div style={{"margin-top":"15px"}}>
+      <div style={{marginTop:"15px"}}>
         <h2 className="user-home-text">Professor {props.currentUser.teacher.last_name}'s Announcements:</h2>
     {announcements.map(ann=>{
-    return (<div style={{"padding-bottom": "25px"}}>
+    return (<div style={{paddingBottom: "25px"}}>
         <Toast style={{"maxWidth": "500px"}}>
-        <Toast.Header style={{"font-size": "15px"}}>{formatDate(ann.created_at)}</Toast.Header>
-        <Toast.Body style={{"font-size": "15px"}}>{ann.content}</Toast.Body>
+        <Toast.Header style={{fontSize: "15px"}}>{formatDate(ann.created_at)}</Toast.Header>
+        <Toast.Body style={{fontSize: "15px"}}>{ann.content}</Toast.Body>
         </Toast>
     </div>)
     })}

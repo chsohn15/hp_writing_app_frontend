@@ -75,26 +75,26 @@ class Assignment extends React.Component {
     return (
       <div className="assignment-div">
         <Container>
-        <h1 className="assignment-content" style={{"font-family":"'Parisienne', cursive", "font-size":"55px"}}>{assignment.name}</h1>
+        <h1 className="assignment-content" style={{fontFamily:"'Parisienne', cursive", fontSize:"55px"}}>{assignment.name}</h1>
         <Progress percent={this.state.progress} active color="yellow"></Progress>
-        <h2 style={{"font-family":"'Parisienne', cursive","font-size":"40px"}}>{assignment.prompt}</h2>
+        <h2 style={{fontFamily:"'Parisienne', cursive",fontSize:"40px"}}>{assignment.prompt}</h2>
 
         <Form onSubmit={(e) => this.compile(e)}>
           {assignment.assignment_questions
             .slice(0, this.state.currentIndex)
             .map((question, index) => (
               <div className="assignment-content" id={index}>
-                <label style={{"font-family": "'Cardo', serif", "font-size":"20px"}}>{question.question}</label>
+                <label style={{fontFamily: "'Cardo', serif", fontSize:"20px"}}>{question.question}</label>
                 <br />
-                <textarea type="text" placeholder="Begin writing here..." style={{ padding: "10px", border: "none", background: "transparent", height: 70, width: 597, "font-family": "'Cardo', serif", "font-size":"15px" }} />
+                <textarea type="text" placeholder="Begin writing here..." style={{ padding: "10px", border: "none", background: "transparent", height: 70, width: 597, fontFamily: "'Cardo', serif", fontSize:"15px" }} />
                 <br />
               </div>
             ))}
           {this.state.currentIndex < assignment.assignment_questions.length ? (
-            <Button style={{"font-family": "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center" onClick={() => this.showNextQuestion()}>Next</Button>
+            <Button style={{fontFamily: "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center" onClick={() => this.showNextQuestion()}>Next</Button>
           ) : (
             <div>
-            <Button style={{"font-family": "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center"
+            <Button style={{fontFamily: "'Cardo', serif"}} variant="light" className="assignment-content d-flex justify-content-center"
               onClick={() => this.displayParagraph()}
               type="submit"
               value="Transform Into a Paragraph!"
@@ -109,12 +109,12 @@ class Assignment extends React.Component {
           <textarea
             onChange={(e) => this.editParagraph(e.target.value)}
             className="assignment-content"
-            style={{ padding: "10px", "margin-top": "25px", "padding-top": "25px", border: "none", background: "transparent", height: 200, width: 500, "font-family": "'Cardo', serif", "font-size":"15px" }}
+            style={{ padding: "10px", marginTop: "25px", "padding-top": "25px", border: "none", background: "transparent", height: 200, width: 500, fontFamily: "'Cardo', serif", fontSize:"15px" }}
             type="text"
             value={this.state.studentParagraph}
           />
           <br />
-          <Button style={{"font-family": "'Cardo', serif", "font-color": "black"}} variant="light" className="assignment-content d-flex justify-content-center" type="submit">
+          <Button style={{fontFamily: "'Cardo', serif", fontColor: "black"}} variant="light" className="assignment-content d-flex justify-content-center" type="submit">
             <NavLink
               onClick={this.submitParagraph.bind(this)}
               to={{ pathname: "/user_home" }}
