@@ -125,6 +125,8 @@ class App extends React.Component {
   setTeacher = (id) => {
     let studentId = this.state.currentUser.id;
 
+
+
     let configObj = {
       method: "PATCH",
       headers: {
@@ -141,6 +143,7 @@ class App extends React.Component {
         this.setState({
           currentUser: student,
         });
+
       });
   };
 

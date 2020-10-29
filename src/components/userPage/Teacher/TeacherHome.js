@@ -91,7 +91,7 @@ const TeacherHome = (props) => {
                 <Toast.Body style={{"font-size": "15px"}}>
                   <strong className="mr-auto">{formatDate(ann.created_at)}</strong>
                   
-                <i class="fa fa-close float-right" onClick={() => deleteAnn(ann.id)} style={{cursor:"pointer"}}/>
+                <i className="fa fa-close float-right" onClick={() => deleteAnn(ann.id)} style={{cursor:"pointer"}}/>
                 </Toast.Body>
                   <Toast.Body style={{"font-size": "15px"}}>{ann.content}</Toast.Body>
                 </Toast>

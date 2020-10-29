@@ -48,6 +48,7 @@ class LogIn extends React.Component {
 
   goToUserPage = () => {
     this.props.history.push("/user_home");
+    //window.location.reload()
   };
 
   render() {
@@ -75,7 +76,7 @@ class LogIn extends React.Component {
                   }}
                 >
                   <Form.Group as={Row}>
-                    <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "590px", "margin-top":"11px"}}>Username</Form.Label>
+                    <Form.Label style={{fontSize:"22px", "color":"white", marginLeft: "590px", marginTop:"11px"}}>Username</Form.Label>
                     <Form.Control
                       onChange={(e) => this.handleChange(e)}
                       name="username"
@@ -84,17 +85,17 @@ class LogIn extends React.Component {
                     />
                   </Form.Group>
                   <Form.Group as={Row}>
-                  <Form.Label style={{"font-size":"22px", "color":"white", "margin-left": "594px", "margin-top":"11px"}}>Password</Form.Label>
+                  <Form.Label style={{fontSize:"22px", "color":"white", marginLeft: "594px", marginTop:"11px"}}>Password</Form.Label>
                   <Form.Control
                     onChange={(e) => this.handleChange(e)}
                     name="password"
                     type="password"
-                    style={{"font-size":"17px", "width":"150px", "margin-left":"15px"}}
+                    style={{fontSize:"17px", "width":"150px", marginLeft:"15px"}}
                   />
                   </Form.Group>
-                  <Button style={{"margin-right":"10px"}} variant="dark" type="submit" value="Log In">Log In</Button>
+                  <Button style={{marginRight:"10px"}} variant="dark" type="submit" value="Log In">Log In</Button>
                   {this.state.errors.length > 0
-                    ? this.state.errors.map((error) => <div style={{"font-size":"19px", "color":"white"}}>{error}</div>)
+                    ? this.state.errors.map((error) => <div style={{fontSize:"19px", "color":"white"}}>{error}</div>)
                     : null}
                 </Form>
                 </div>
