@@ -6,5 +6,5 @@ This app is designed to engage students in writing by providing an immersive exp
 
 See the video demo here: https://youtu.be/IDtMxssicik. 
 
-To use the app, open the 'hogwarts_backend' repository, bundle install, and run "rails s" to begin the server. When cloning and running the frontend, run "npm start." 
+To use the app, open the 'hogwarts_backend' repository, bundle install, and run "rails s" to begin the server. When operating the frontend, run "npm start." 
 
